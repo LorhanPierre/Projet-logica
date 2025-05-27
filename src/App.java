@@ -2,7 +2,7 @@ import java.sql.Connection;
 
 import ConexaoBD.ConexaoBD;
 
-public class App {
+public class App extends DAO.orientacao{
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
 
@@ -13,5 +13,8 @@ public class App {
         } else {
             System.out.println("Erro na conexão com o banco de dados");
         }
+
+
+
     }
 }
