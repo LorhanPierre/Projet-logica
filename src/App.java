@@ -1,10 +1,11 @@
 import java.sql.Connection;
 import DAO.*;
+//import jdk.internal.org.jline.terminal.TerminalBuilder.SystemOutput;
+import services.*;
 import ConexaoBD.ConexaoBD;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
 
                 Connection conexao = ConexaoBD.getConexao();
 
@@ -14,7 +15,15 @@ public class App {
             System.out.println("Erro na conexão com o banco de dados");
         }
         ;
-        orientacaoPT.AtualizarTituloOrientacao();
+        
+        
+        System.out.println("====================================================================");
+        System.out.println("||                      Welcome to WEG one                        ||");
+        System.out.println("====================================================================");
+        
+        services.setLanguage();
+        		
+        	
         
     }
 }
