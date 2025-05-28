@@ -1,5 +1,5 @@
 import java.sql.Connection;
-
+import DAO.*;
 import ConexaoBD.ConexaoBD;
 
 public class App {
@@ -13,5 +13,8 @@ public class App {
         } else {
             System.out.println("Erro na conexão com o banco de dados");
         }
+
+        orientacaoPT.cadastroPt();
+
     }
 }
