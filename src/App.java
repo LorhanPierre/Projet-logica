@@ -14,7 +14,7 @@ public class App {
             System.out.println("Erro na conexão com o banco de dados");
         }
         ;
-        orientacaoPT.BuscaPorTitulo();
-
+        orientacaoPT.ExcluirPorTitulo();
+        
     }
 }
