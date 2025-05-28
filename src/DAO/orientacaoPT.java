@@ -13,41 +13,47 @@ public class orientacaoPT {
 
     try (Connection conn = ConexaoBD.getConexao()){
 
-        System.out.println("===================================================");
+        System.out.println("=====================================================================");
         System.out.println("Digite o titulo da orientação que deseja cadastrar:");
-        System.out.println("---------------------------------------------------");
+	    System.out.println("--------------------------------------------------------------------");
         String titulo = input.nextLine();
-        System.out.println("===================================================");
-        System.out.println("                Tipos de Orientações               ");
-        System.out.println("===================================================");
-        System.out.println("1.Manual de Operação    2.Procedimento de Segurança");
-        System.out.println("3.Manutenção e Reparos  4.Testes e Diagnóstico     ");
-        System.out.println("5.Manual de Conduta     6.Operações Setoriais      ");
-        System.out.println("---------------------------------------------------");  
-        System.out.println("o tipo de orientação que deseja cadastrar:");
+        System.out.println("+==================================================================+");
+        System.out.println("|                      Tipos de Orientações                        |");
+	    System.out.println("|------------------------------------------------------------------|");
+        System.out.println("|         1 Manual de Operação    2 Procedimento de Segurança      |");
+        System.out.println("|         3 Manutenção e Reparos  4 Testes e Diagnóstico           |");
+        System.out.println("|         5 Manual de Conduta     6 Operações Setoriais            |");
+        System.out.println("+==================================================================+");
+        System.out.print("| o tipo de orientação que deseja cadastrar:");
         String tipo = input.nextLine();
 
         if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Manual de Operação")){
             tipo = "Manual de Operação";
+            
         } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Procedimento de Segurança")){
             tipo = "Procedimento de Segurança";
+            
         } else if(tipo.equalsIgnoreCase("3") || tipo.equalsIgnoreCase("Manutenção e Reparos")){
             tipo = "Manutenção e Reparos";
+            
         } else if(tipo.equalsIgnoreCase("4") || tipo.equalsIgnoreCase("Testes e Diagnóstico")){
             tipo = "Testes e Diagnóstico";
+            
         } else if(tipo.equalsIgnoreCase("5") || tipo.equalsIgnoreCase("Manual de Conduta")){
             tipo = "Manual de Conduta";
+            
         } else if(tipo.equalsIgnoreCase("6") || tipo.equalsIgnoreCase("Operações Setoriais")){
             tipo = "Operações Setoriais";
+            
         } else {
             System.out.println("Tipo inválido. Por favor, tente novamente.");
             return;
         }
-        System.out.println("===================================================");
-        System.out.println("Digite a orientação que deseja cadastrar:");
-        System.out.println("---------------------------------------------------");
+	    System.out.println("|------------------------------------------------------------------|");
+        System.out.print("| Digite a orientação que deseja cadastrar:");
+	    System.out.println("|------------------------------------------------------------------|");
         String Orientacao = input.nextLine();
-        System.out.println("===================================================");
+        System.out.println("+==================================================================+");
         
 
         //Codigo para inserir no banco de dados
@@ -77,13 +83,13 @@ public class orientacaoPT {
 
             while (rs.next()) {
 
-            System.out.println("===================================================");
+    	    System.out.println("==================================================================");
             System.out.println("ID: " + rs.getInt("id"));
-            System.out.println("...................................................");
+            System.out.println("..................................................................");
             System.out.println("Título: " + rs.getString("titulo"));
-            System.out.println("...................................................");
+            System.out.println("..................................................................");
             System.out.println("Tipo: " + rs.getString("tipo"));
-            System.out.println("...................................................");
+            System.out.println("..................................................................");
             System.out.println("Orientação: " + rs.getString("orient"));
             
         }
@@ -97,15 +103,14 @@ public class orientacaoPT {
         Scanner input = new Scanner(System.in);
 
         try (Connection conn = ConexaoBD.getConexao()){
-        System.out.println("===================================================");
-        System.out.println("                Tipos de Orientações               ");
-        System.out.println("===================================================");
-        System.out.println("1.Manual de Operação    2.Procedimento de Segurança");
-        System.out.println("3.Manutenção e Reparos  4.Testes e Diagnóstico     ");
-        System.out.println("5.Manual de Conduta     6.Operações Setoriais      ");
-        System.out.println("===================================================");  
-        System.out.println("Escolha o Tipo de Orientação que Deseja Filtrar:");
-        System.out.println("---------------------------------------------------");
+	    System.out.println("+==================================================================+");
+        System.out.println("|                      Tipos de Orientações                        |");
+	    System.out.println("|------------------------------------------------------------------|");	   
+        System.out.println("|         1 Manual de Operação    2 Procedimento de Segurança      |");
+        System.out.println("|         3 Manutenção e Reparos  4 Testes e Diagnóstico           |");
+        System.out.println("|         5 Manual de Conduta     6 Operações Setoriais            |");
+	    System.out.println("|------------------------------------------------------------------|");
+        System.out.print("| Escolha o Tipo de Orientação que Deseja Filtrar: ");
         String tipo = input.nextLine();
 
         if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Manual de Operação")){
