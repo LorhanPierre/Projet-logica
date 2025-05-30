@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -71,6 +72,30 @@ public class orientacaoEs {
     } 
     input.close();
 }
+
+public static void ListarTodaTabelaES() {
+    try (Connection conn = ConexaoBD.getConexao()) {
+        String sql = "SELECT * FROM orientEs";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        while (rs.next()) {
+
+            System.out.println("==================================================================");
+            System.out.println("ID: " + rs.getInt("id"));
+            System.out.println("..................................................................");
+            System.out.println("Título: " + rs.getString("titulo"));
+            System.out.println("..................................................................");
+            System.out.println("Tipo: " + rs.getString("tipo"));
+            System.out.println("..................................................................");
+            System.out.println("Directriz: " + rs.getString("orient"));
+
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al obtener las directrices: " + e.getMessage());
+    }
+}
+
 
 
 }

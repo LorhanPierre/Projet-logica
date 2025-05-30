@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -71,6 +72,30 @@ public class orientacaoFr {
     } 
     input.close();
 }
+
+public static void ListarTodaTabelaFR() {
+    try (Connection conn = ConexaoBD.getConexao()) {
+        String sql = "SELECT * FROM orientFr";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        while (rs.next()) {
+
+            System.out.println("==================================================================");
+            System.out.println("ID : " + rs.getInt("id"));
+            System.out.println("..................................................................");
+            System.out.println("Titre : " + rs.getString("titulo"));
+            System.out.println("..................................................................");
+            System.out.println("Type : " + rs.getString("tipo"));
+            System.out.println("..................................................................");
+            System.out.println("Directive : " + rs.getString("orient"));
+
+        }
+    } catch (SQLException e) {
+        System.out.println("Erreur lors de la récupération des directives : " + e.getMessage());
+    }
+}
+
 
 
 }

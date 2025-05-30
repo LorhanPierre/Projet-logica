@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -70,6 +71,29 @@ public class orientacaoDe {
         System.out.println("Fehler beim Registrieren der Richtlinie: " + e.getMessage());
     } 
     input.close();
+}
+
+public static void ListarTodaTabelaDE() {
+    try (Connection conn = ConexaoBD.getConexao()) {
+        String sql = "SELECT * FROM orientDe";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        while (rs.next()) {
+
+            System.out.println("==================================================================");
+            System.out.println("ID: " + rs.getInt("id"));
+            System.out.println("..................................................................");
+            System.out.println("Titel: " + rs.getString("titulo"));
+            System.out.println("..................................................................");
+            System.out.println("Typ: " + rs.getString("tipo"));
+            System.out.println("..................................................................");
+            System.out.println("Richtlinie: " + rs.getString("orient"));
+
+        }
+    } catch (SQLException e) {
+        System.out.println("Fehler beim Abrufen der Richtlinien: " + e.getMessage());
+    }
 }
 
 
