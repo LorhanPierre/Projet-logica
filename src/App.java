@@ -1,4 +1,5 @@
 import ConexaoBD.ConexaoBD;
+import DAO.orientacaoEs;
 import DAO.orientacaoPT;
 import java.sql.Connection;
 import services.*;
@@ -17,8 +18,8 @@ public class App {
             System.out.println("Erro na conexão com o banco de dados");
         }
         
-        orientacaoPT test = new orientacaoPT();
-        
+        orientacaoEs test = new orientacaoEs();
+        test.ListarTodaTabelaES();
         
         System.out.println("====================================================================");
         System.out.println("||                      Welcome to WEG one                        ||");
