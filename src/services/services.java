@@ -1,8 +1,7 @@
 package services;
 
-import java.util.Scanner;
-
 import DAO.*;
+import java.util.Scanner;
 
 public class services {
 
@@ -146,16 +145,51 @@ public class services {
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("4")) {
+			boolean edicaoValida = true;
+
+			do {
+			System.out.println("|------------------------------------------------------------------|");
+		    System.out.println("|         1 Recadastrar orientação       2 Editar Titulo           |");
+			System.out.println("|         3 Editar Tipo                  4 Editar conteudo         |");
+			System.out.println("|------------------------------------------------------------------|");
+			System.out.print("| Que tipo de edição deseja realizar: ");
+
+			String edita = input.nextLine();
+		    
+		    if (edita.equals("1")) {
+		    	orientacaoPT.AtualizarTodaAOrientacao();
+		    	
+		    }else if (edita.equals("2")) {
+		    	orientacaoPT.AtualizarTituloOrientacao();
+		    	
+		    } else if (edita.equals("3")) {
+		    	orientacaoPT.AtualizarTipoOrientacao();
+		    	
+		    } else if (edita.equals("4")) {
+		    	orientacaoPT.AtualizarOrientacao();
+		    	
+		    } else {
+		    	System.out.println("\nAção inexistente, confira o numero digitado e tente novamente\n" );
+		    	edicaoValida = false;
+		    }
+		    
+			} while (!edicaoValida);
+	    	
+	    	services.menuPT();
 	    
 	//5 MUDAR IDIOMA ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("5")) {
-	    	
-	    	
+
+			services.setLanguage();
+	
 	//6 ENCERRAR ///======================================================================================================================    
- 	
 	    	
 	    } else if (acao.equals("6")) {
+		
+			System.out.println("+==================================================================+");
+			System.out.println("\n               Obrigado por utilizar o WEGone");
+			System.out.println("                         Volte sempre!\n" );
 	    	
 	 // MENSAGEM DE ERRO ///======================================================================================================================    
   	
