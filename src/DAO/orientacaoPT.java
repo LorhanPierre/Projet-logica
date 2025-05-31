@@ -13,10 +13,31 @@ public class orientacaoPT {
 
     try (Connection conn = ConexaoBD.getConexao()){
 
+        boolean entradaValida = true;
+        String titulo;
+        String tipo;
+        String Orientacao;
+
+        do {
+
+            entradaValida = true;
+
         System.out.println("=====================================================================");
         System.out.println("Digite o titulo da orientação que deseja cadastrar:");
 	    System.out.println("--------------------------------------------------------------------");
-        String titulo = input.nextLine();
+        titulo = input.nextLine();
+
+            if(titulo.isEmpty()){
+                System.out.println("Este campo precisa ser preenchido");
+                entradaValida = false;
+            }
+
+        }while (entradaValida == false);
+
+        do{
+
+            entradaValida = true;
+
         System.out.println("+==================================================================+");
         System.out.println("|                      Tipos de Orientações                        |");
 	    System.out.println("|------------------------------------------------------------------|");
@@ -25,11 +46,12 @@ public class orientacaoPT {
         System.out.println("|         5 Manual de Conduta     6 Operações Setoriais            |");
         System.out.println("+==================================================================+");
         System.out.print("| o tipo de orientação que deseja cadastrar:");
-        String tipo = input.nextLine();
+        tipo = input.nextLine();
+        
 
         if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Manual de Operação")){
             tipo = "Manual de Operação";
-            
+   
         } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Procedimento de Segurança")){
             tipo = "Procedimento de Segurança";
             
@@ -47,14 +69,28 @@ public class orientacaoPT {
             
         } else {
             System.out.println("Tipo inválido. Por favor, tente novamente.");
-            return;
+            entradaValida = false;
+            
         }
+
+        }while (entradaValida == false);
+
+        do {
+   
+            //entradaValida = true;
 	    System.out.println("|------------------------------------------------------------------|");
-        System.out.print("| Digite a orientação que deseja cadastrar:");
+        System.out.println("| Digite a orientação que deseja cadastrar:");
 	    System.out.println("|------------------------------------------------------------------|");
-        String Orientacao = input.nextLine();
-        System.out.println("+==================================================================+");
+        Orientacao = input.nextLine();
+
+            if (Orientacao.isEmpty()){
+                System.out.println("Este campo precisa ser preenchido");
+                entradaValida = false;
+            } else {
+                entradaValida = true;
+            }
         
+        }while (entradaValida == false);
 
         //Codigo para inserir no banco de dados
 
@@ -70,7 +106,8 @@ public class orientacaoPT {
     } catch (SQLException e) {
         System.out.println("Erro ao cadastrar orientação: " + e.getMessage());
     } 
-    input.close();
+    
+    
     }
 
     //METODOS DE BUSCA/ VIEWS///========================================================================================
@@ -152,7 +189,7 @@ public class orientacaoPT {
         System.out.println("Erro ao buscar orientações: " + e.getMessage());
     }
 
-    input.close();
+   
     }
 
     //BUSCAS ESPECIFICAS///========================================================================================
@@ -186,7 +223,7 @@ public class orientacaoPT {
         } catch (SQLException e) {
             System.out.println("Erro ao buscar orientação: " + e.getMessage());
         }
-        input.close();
+        
     }
 
     public static void BuscaPorTitulo(){
@@ -220,7 +257,7 @@ public class orientacaoPT {
         } catch (SQLException e) {
             System.out.println("Erro ao buscar orientação: " + e.getMessage());
         }
-        input.close();
+        
     }
 
     //FIM DOS METODOS DE BUSCA/ VIEWS///========================================================================================
@@ -258,7 +295,7 @@ public class orientacaoPT {
         } catch (SQLException e) {
             System.out.println("Erro ao excluir orientação: " + e.getMessage());
         }
-        input.close();
+        
     }
 
     public static void ExcluirPorTitulo() {
@@ -292,7 +329,7 @@ public class orientacaoPT {
         } catch (SQLException e) {
             System.out.println("Erro ao excluir orientação: " + e.getMessage());
         }
-        input.close();
+        
     }
 
     //FIM DOS METODOS DE EXCLUSÃO///========================================================================================
@@ -435,7 +472,7 @@ public class orientacaoPT {
         }catch (Exception e) {
         System.out.println("Erro ao atualizar orientação: " + e.getMessage());
      }
-     input.close();
+     
 }
 
 public static void AtualizarTituloOrientacao(){
@@ -506,8 +543,6 @@ public static void AtualizarTituloOrientacao(){
     } catch (Exception e) {
         System.out.println("Erro ao atualizar título da orientação: " + e.getMessage()); 
     }
-
-    input.close();
 
 }
 
@@ -625,7 +660,7 @@ public static void AtualizarTipoOrientacao(){
     } catch (Exception e) {
         System.out.println("Erro ao atualizar tipo da orientação: " + e.getMessage());
     }
-input.close();
+
 }
 
 
@@ -685,7 +720,7 @@ public static void AtualizarOrientacao(){
         if (rowsAffected > 0) {
             System.out.println("Orientação atualizada com sucesso!");
         } else {
-            System.out.println("Nenhuma orientação encontrada com o título: " + titulo);
+            System.out.println("Erro ao procurar " + titulo + " no sistema");
         }
 
     } else {
@@ -696,8 +731,6 @@ public static void AtualizarOrientacao(){
         System.out.println("Erro ao atualizar orientação: " + e.getMessage());
     } 
     
-
-    input.close();
 }
 
 }

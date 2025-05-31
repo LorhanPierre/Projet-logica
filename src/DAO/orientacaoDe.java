@@ -1,9 +1,8 @@
 package DAO;
 
+import ConexaoBD.ConexaoBD;
 import java.sql.*;
 import java.util.Scanner;
-
-import ConexaoBD.ConexaoBD;
 
 public class orientacaoDe {
 

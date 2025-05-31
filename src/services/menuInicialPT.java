@@ -3,7 +3,7 @@ package services;
 import DAO.*;
 import java.util.Scanner;
 
-public class services {
+public class menuInicialPT {
 
 	//MÉTODO PARA DEFINIR O IDIOMA///==================================================================================================
 	public static void setLanguage () {
@@ -24,7 +24,7 @@ public class services {
         String idiomaAtual = input.nextLine();
         
         if (idiomaAtual.equalsIgnoreCase("portugues") || idiomaAtual.equalsIgnoreCase("PT") || idiomaAtual.equalsIgnoreCase("1") ) {
-        	services.menuPT();
+        	menuInicialPT.menuPT();
         	
         } else if (idiomaAtual.equalsIgnoreCase("english") || idiomaAtual.equalsIgnoreCase("EN") || idiomaAtual.equalsIgnoreCase("2") ) {
         	System.out.println("menu em desenvolviento");
@@ -46,7 +46,7 @@ public class services {
         
 		} while (!valido);
 
-		input.close();
+		
 	}
 	
 	
@@ -57,6 +57,9 @@ public class services {
 		Scanner input = new Scanner (System.in);
 		
 		do {
+			
+
+
 		System.out.println("+==================================================================+");
 	    System.out.println("|                         Menu Inicial                             |");
 	    System.out.println("|------------------------------------------------------------------|");
@@ -72,6 +75,7 @@ public class services {
 	    
 	    if (acao.equals("1")) {
 	    	orientacaoPT.cadastroPt();
+			menuPT();
 	    	
 	//2 EXCLUSÂO ///======================================================================================================================    
 	    	
@@ -101,7 +105,7 @@ public class services {
 	    
 			} while (!excluirValido);
 	    	
-	    	services.menuPT();
+	    	menuInicialPT.menuPT();
 		    
 	//3 BUSCA ///======================================================================================================================    
 	    	
@@ -140,7 +144,7 @@ public class services {
 		    
 			} while (!buscaValida);
 	    	
-	    	services.menuPT();
+	    	menuInicialPT.menuPT();
 	    	
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
@@ -175,13 +179,13 @@ public class services {
 		    
 			} while (!edicaoValida);
 	    	
-	    	services.menuPT();
+	    	menuInicialPT.menuPT();
 	    
 	//5 MUDAR IDIOMA ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("5")) {
 
-			services.setLanguage();
+			menuInicialPT.setLanguage();
 	
 	//6 ENCERRAR ///======================================================================================================================    
 	    	
@@ -200,9 +204,8 @@ public class services {
 	    
 		} while (!valido);
 		
-		input.close();
+		
 	}
-	
-	
+
 	
 }
