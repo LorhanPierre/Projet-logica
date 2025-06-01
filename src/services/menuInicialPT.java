@@ -2,7 +2,7 @@ package services;
 
 import DAO.*;
 import java.util.Scanner;
-import app.wegone.*;
+
 
 public class menuInicialPT {
 	
@@ -141,7 +141,7 @@ public class menuInicialPT {
 	    	
 	    } else if (acao.equals("5")) {
 
-			App.setLanguage();
+			idioma.setLanguage();
 	
 	//6 ENCERRAR ///======================================================================================================================    
 	    	
