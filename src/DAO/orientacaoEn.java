@@ -340,4 +340,529 @@ public static void BuscaPorTituloEn() {
     input.close();
 }
 
+    //=====================================================================================================================================
+
+    public void ExcluirPorIDEn() {
+    Scanner input = new Scanner(System.in);
+
+    try (Connection conn = ConexaoBD.getConexao()) {
+        System.out.println("You are about to delete a guidance in all languages.");
+        System.out.println("===================================================");
+        System.out.println("Enter the ID of the guidance you want to delete:");
+        System.out.println("---------------------------------------------------");
+        int id = input.nextInt();
+        System.out.println("===================================================");
+        System.out.println("Are you sure you want to delete the guidance with ID: " + id + "? (y/n)");
+        String escolha = input.next();
+
+        if (escolha.equalsIgnoreCase("n") || escolha.equalsIgnoreCase("no")) {
+            System.out.println("Deletion cancelled.");
+            return;
+        }
+
+        String sqlEn = "DELETE FROM orientEn WHERE id = ?";
+        PreparedStatement stmtEn = conn.prepareStatement(sqlEn);
+        stmtEn.setInt(1, id);
+        int rowsAffectedEn = stmtEn.executeUpdate();
+
+        String sqlPt = "DELETE FROM orientPt WHERE id = ?";
+        PreparedStatement stmtPt = conn.prepareStatement(sqlPt);
+        stmtPt.setInt(1, id);
+        int rowsAffectedPt = stmtPt.executeUpdate();
+
+        String sqlDe = "DELETE FROM orientDe WHERE id = ?";
+        PreparedStatement stmtDe = conn.prepareStatement(sqlDe);
+        stmtDe.setInt(1, id);
+        int rowsAffectedDe = stmtDe.executeUpdate();
+
+        String sqlEs = "DELETE FROM orientEs WHERE id = ?";
+        PreparedStatement stmtEs = conn.prepareStatement(sqlEs);
+        stmtEs.setInt(1, id);
+        int rowsAffectedEs = stmtEs.executeUpdate();
+
+        String sqlFr = "DELETE FROM orientFr WHERE id = ?";
+        PreparedStatement stmtFr = conn.prepareStatement(sqlFr);
+        stmtFr.setInt(1, id);
+        int rowsAffectedFr = stmtFr.executeUpdate();
+
+        if (rowsAffectedEn > 0) {
+            System.out.println("Guidance deleted successfully!");
+        } else {
+            System.out.println("The ID: " + id + " was not found for deletion.");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error deleting guidance: " + e.getMessage());
+    }
+
+    input.close();
+}
+
+public void ExcluirPorTituloEn() {
+    Scanner input = new Scanner(System.in);
+
+    try (Connection conn = ConexaoBD.getConexao()) {
+        System.out.println("===================================================");
+        System.out.println("Enter the title of the guidance you want to delete:");
+        System.out.println("---------------------------------------------------");
+        String titulo = input.nextLine();
+        System.out.println("===================================================");
+        System.out.println("Are you sure you want to delete the guidance with title: " + titulo + "? (y/n)");
+        String escolha = input.next();
+
+        if (escolha.equalsIgnoreCase("n") || escolha.equalsIgnoreCase("no")) {
+            System.out.println("Deletion cancelled.");
+            return;
+        }
+
+        String sqlEn = "SELECT id FROM orientEn WHERE titulo = ?";
+        PreparedStatement stmtEn = conn.prepareStatement(sqlEn);
+        stmtEn.setString(1, titulo);
+        ResultSet rs = stmtEn.executeQuery();
+
+        if (rs.next()) {
+            int id = rs.getInt("id");
+
+            String sqlDelEn = "DELETE FROM orientEn WHERE id = ?";
+            PreparedStatement stmtDelEn = conn.prepareStatement(sqlDelEn);
+            stmtDelEn.setInt(1, id);
+            int rowsAffectedEn = stmtDelEn.executeUpdate();
+
+            String sqlDelPt = "DELETE FROM orientPt WHERE id = ?";
+            PreparedStatement stmtDelPt = conn.prepareStatement(sqlDelPt);
+            stmtDelPt.setInt(1, id);
+            int rowsAffectedPt = stmtDelPt.executeUpdate();
+
+            String sqlDelDe = "DELETE FROM orientDe WHERE id = ?";
+            PreparedStatement stmtDelDe = conn.prepareStatement(sqlDelDe);
+            stmtDelDe.setInt(1, id);
+            int rowsAffectedDe = stmtDelDe.executeUpdate();
+
+            String sqlDelEs = "DELETE FROM orientEs WHERE id = ?";
+            PreparedStatement stmtDelEs = conn.prepareStatement(sqlDelEs);
+            stmtDelEs.setInt(1, id);
+            int rowsAffectedEs = stmtDelEs.executeUpdate();
+
+            String sqlDelFr = "DELETE FROM orientFr WHERE id = ?";
+            PreparedStatement stmtDelFr = conn.prepareStatement(sqlDelFr);
+            stmtDelFr.setInt(1, id);
+            int rowsAffectedFr = stmtDelFr.executeUpdate();
+
+            if (rowsAffectedEn > 0) {
+                System.out.println("Guidance deleted successfully!");
+            } else {
+                System.out.println("No guidance found with the title: " + titulo);
+            }
+        } else {
+            System.out.println("No guidance found with the title: " + titulo);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error deleting guidance: " + e.getMessage());
+    }
+
+    input.close();
+}
+
+    //=====================================================================================================================================
+
+    public static void AtualizarTodaAOrientacaoEn(){
+    
+    Scanner input = new Scanner (System.in);
+
+    try(Connection conn = ConexaoBD.getConexao()){
+        System.out.println("===================================================");
+        System.out.println("Do you want to search for the guidance by ID or Title? (Type 'ID' or 'Title')");
+        System.out.println("---------------------------------------------------");
+        String escolha = input.nextLine();
+
+        if(escolha.equalsIgnoreCase("ID")){
+            System.out.println("===================================================");
+            System.out.println("Enter the ID of the guidance you want to update:");
+            System.out.println("---------------------------------------------------");
+            int id = input.nextInt();
+            System.out.println("===================================================");
+            input.nextLine(); // Clear scanner buffer
+            System.out.println("Enter the new title of the guidance:");
+            System.out.println("----------------------------------------------------");
+            String novoTitulo = input.nextLine();
+
+            System.out.println("===================================================");
+            System.out.println("                 Types of Guidance                ");
+            System.out.println("===================================================");
+            System.out.println("1.Operation Manual     2.Safety Procedure         ");
+            System.out.println("3.Maintenance & Repair 4.Testing & Diagnostics    ");
+            System.out.println("5.Conduct Manual       6.Sector Operations        ");
+            System.out.println("===================================================");
+            System.out.println("Choose the new type of guidance:");
+            System.out.println("---------------------------------------------------");
+            String tipo = input.nextLine();
+
+            if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Operation Manual")){
+                tipo = "Operation Manual";
+            } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Safety Procedure")){
+                tipo = "Safety Procedure";
+            } else if(tipo.equalsIgnoreCase("3") || tipo.equalsIgnoreCase("Maintenance & Repair")){
+                tipo = "Maintenance & Repair";
+            } else if(tipo.equalsIgnoreCase("4") || tipo.equalsIgnoreCase("Testing & Diagnostics")){
+                tipo = "Testing & Diagnostics";
+            } else if(tipo.equalsIgnoreCase("5") || tipo.equalsIgnoreCase("Conduct Manual")){
+                tipo = "Conduct Manual";
+            } else if(tipo.equalsIgnoreCase("6") || tipo.equalsIgnoreCase("Sector Operations")){
+                tipo = "Sector Operations";
+            } else {
+                System.out.println("Invalid type. Please try again.");
+                return;
+            }
+
+            System.out.println("===================================================");
+            System.out.println("Enter the new guidance:");
+            System.out.println("---------------------------------------------------");
+            String novaOrientacao = input.nextLine();
+
+            String sql = "UPDATE orientEn SET titulo = ?, tipo = ?, orient = ? WHERE id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, novoTitulo);
+            stmt.setString(2, tipo);
+            stmt.setString(3, novaOrientacao);
+            stmt.setInt(4, id);
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Guidance updated successfully!");
+            } else {
+                System.out.println("No guidance found with ID: " + id);
+            }
+
+        } else if(escolha.equalsIgnoreCase("Title")){
+            System.out.println("===================================================");
+            System.out.println("Enter the title of the guidance you want to update:");
+            System.out.println("---------------------------------------------------");
+            String titulo = input.nextLine();
+
+            System.out.println("Enter the new title of the guidance:");
+            System.out.println("----------------------------------------------------");
+            String novoTitulo = input.nextLine();
+
+            System.out.println("===================================================");
+            System.out.println("                 Types of Guidance                ");
+            System.out.println("===================================================");
+            System.out.println("1.Operation Manual     2.Safety Procedure         ");
+            System.out.println("3.Maintenance & Repair 4.Testing & Diagnostics    ");
+            System.out.println("5.Conduct Manual       6.Sector Operations        ");
+            System.out.println("===================================================");
+            System.out.println("Choose the new type of guidance:");
+            System.out.println("---------------------------------------------------");
+            String tipo = input.nextLine();
+
+            if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Operation Manual")){
+                tipo = "Operation Manual";
+            } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Safety Procedure")){
+                tipo = "Safety Procedure";
+            } else if(tipo.equalsIgnoreCase("3") || tipo.equalsIgnoreCase("Maintenance & Repair")){
+                tipo = "Maintenance & Repair";
+            } else if(tipo.equalsIgnoreCase("4") || tipo.equalsIgnoreCase("Testing & Diagnostics")){
+                tipo = "Testing & Diagnostics";
+            } else if(tipo.equalsIgnoreCase("5") || tipo.equalsIgnoreCase("Conduct Manual")){
+                tipo = "Conduct Manual";
+            } else if(tipo.equalsIgnoreCase("6") || tipo.equalsIgnoreCase("Sector Operations")){
+                tipo = "Sector Operations";
+            } else {
+                System.out.println("Invalid type. Please try again.");
+                return;
+            }
+
+            System.out.println("===================================================");
+            System.out.println("Enter the new guidance:");
+            System.out.println("---------------------------------------------------");
+            String novaOrientacao = input.nextLine();
+
+            String sql = "UPDATE orientEn SET titulo = ?, tipo = ?, orient = ? WHERE titulo = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, novoTitulo);
+            stmt.setString(2, tipo);
+            stmt.setString(3, novaOrientacao);
+            stmt.setString(4, titulo);
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Guidance updated successfully!");
+            } else {
+                System.out.println("No guidance found with title: " + titulo);
+            }
+
+        } else {
+            System.out.println("Invalid option. Please try again.");
+        }
+
+    } catch (Exception e) {
+        System.out.println("Error updating guidance: " + e.getMessage());
+    }
+
+    input.close();
+}
+
+
+    public static void AtualizarTituloOrientacaoEn(){
+    Scanner input =  new Scanner(System.in);
+
+    try {
+
+        System.out.println("===================================================");
+        System.out.println("Do you want to search the orientation by ID or Title? (Type 'ID' or 'Title')");
+        System.out.println("---------------------------------------------------");
+        String escolha = input.nextLine();
+
+        if(escolha.equalsIgnoreCase("Id")){
+            System.out.println("===================================================");
+            System.out.println("Enter the ID of the orientation you want to update:");
+            System.out.println("---------------------------------------------------");
+            int id = input.nextInt();
+            System.out.println("===================================================");
+            input.nextLine(); // Clear scanner buffer
+            System.out.println("Enter the new title of the orientation:");
+            System.out.println("----------------------------------------------------");        
+            String novoTitulo = input.nextLine();
+
+            String sql = "UPDATE orientEn SET titulo = ? WHERE id = ?";
+            try (Connection conn = ConexaoBD.getConexao();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, novoTitulo);
+                stmt.setInt(2, id);
+                int rowsAffected = stmt.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    System.out.println("Title updated successfully!");
+                } else {
+                    System.out.println("No orientation found with ID: " + id);
+                }
+            }
+
+        }else if(escolha.equalsIgnoreCase("titulo")){
+
+            System.out.println("===================================================");
+            System.out.println("Enter the title of the orientation you want to update:");
+            System.out.println("---------------------------------------------------");
+            String titulo = input.nextLine();
+            System.out.println("===================================================");
+            System.out.println("Enter the new title of the orientation:");
+            String novoTitulo = input.nextLine();
+            System.out.println("----------------------------------------------------"); 
+
+            String sql = "UPDATE orientEn SET titulo = ? WHERE titulo = ?";
+            try (Connection conn = ConexaoBD.getConexao();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, novoTitulo);
+                stmt.setString(2, titulo);
+                int rowsAffected = stmt.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    System.out.println("Title updated successfully!");
+                } else {
+                    System.out.println("No orientation found with title: " + titulo);
+                }
+            }
+
+        } else {
+            System.out.println("Invalid option. Please try again.");
+
+        }
+        
+    } catch (Exception e) {
+        System.out.println("Error updating orientation title: " + e.getMessage()); 
+    }
+
+    input.close();
+}
+
+
+public static void AtualizarTipoOrientacaoEn(){
+
+    Scanner input = new Scanner (System.in);
+
+    try(Connection conn = ConexaoBD.getConexao()){
+
+    System.out.println("===================================================");
+    System.out.println("Do you want to search the orientation by ID or Title? (Type 'ID' or 'Title')");
+    System.out.println("---------------------------------------------------");
+    String escolha = input.nextLine();
+    
+    if(escolha.equalsIgnoreCase("Id")){
+
+    System.out.println("===================================================");
+    System.out.println("Enter the ID of the orientation you want to update:");
+    System.out.println("---------------------------------------------------");
+    int id = input.nextInt();
+    System.out.println("===================================================");
+    input.nextLine(); // Clear scanner buffer
+
+    System.out.println("===================================================");
+    System.out.println("                Types of Orientations               ");
+    System.out.println("===================================================");
+    System.out.println("1.Operation Manual    2.Safety Procedure");
+    System.out.println("3.Maintenance and Repairs  4.Testing and Diagnostics");
+    System.out.println("5.Code of Conduct     6.Sector Operations");
+    System.out.println("===================================================");  
+    System.out.println("Choose the new Orientation Type:");
+    System.out.println("---------------------------------------------------");
+    String tipo = input.nextLine();
+
+    if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Operation Manual")){
+        tipo = "Operation Manual";
+    } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Safety Procedure")){
+        tipo = "Safety Procedure";
+    } else if(tipo.equalsIgnoreCase("3") || tipo.equalsIgnoreCase("Maintenance and Repairs")){
+        tipo = "Maintenance and Repairs";
+    } else if(tipo.equalsIgnoreCase("4") || tipo.equalsIgnoreCase("Testing and Diagnostics")){
+        tipo = "Testing and Diagnostics";
+    } else if(tipo.equalsIgnoreCase("5") || tipo.equalsIgnoreCase("Code of Conduct")){
+        tipo = "Code of Conduct";
+    } else if(tipo.equalsIgnoreCase("6") || tipo.equalsIgnoreCase("Sector Operations")){
+        tipo = "Sector Operations";
+    } else {
+        System.out.println("Invalid type. Please try again.");
+        return;
+    }
+
+    String sql = "UPDATE orientEn SET tipo = ? WHERE id = ?";	
+    PreparedStatement stmt = conn.prepareStatement(sql);
+    stmt.setString(1, tipo);
+    stmt.setInt(2, id);
+    int rowsAffected = stmt.executeUpdate();
+    if (rowsAffected > 0) {
+        System.out.println("Type updated successfully!");
+    } else {
+        System.out.println("No orientation found with ID: " + id);
+    }
+
+    }else if(escolha.equalsIgnoreCase("Titulo")){
+
+    System.out.println("===================================================");
+    System.out.println("Enter the title of the orientation you want to update:");
+    System.out.println("---------------------------------------------------");
+    String titulo = input.nextLine();
+    System.out.println("===================================================");
+    System.out.println("                Types of Orientations               ");
+    System.out.println("===================================================");
+    System.out.println("1.Operation Manual    2.Safety Procedure");
+    System.out.println("3.Maintenance and Repairs  4.Testing and Diagnostics");
+    System.out.println("5.Code of Conduct     6.Sector Operations");
+    System.out.println("===================================================");
+    System.out.println("Choose the new Orientation Type:");
+    System.out.println("---------------------------------------------------");
+    String tipo = input.nextLine();
+    
+    if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Operation Manual")){
+        tipo = "Operation Manual";
+    } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Safety Procedure")){
+        tipo = "Safety Procedure";
+    } else if(tipo.equalsIgnoreCase("3") || tipo.equalsIgnoreCase("Maintenance and Repairs")){
+        tipo = "Maintenance and Repairs";
+    } else if(tipo.equalsIgnoreCase("4") || tipo.equalsIgnoreCase("Testing and Diagnostics")){
+        tipo = "Testing and Diagnostics";
+    } else if(tipo.equalsIgnoreCase("5") || tipo.equalsIgnoreCase("Code of Conduct")){
+        tipo = "Code of Conduct";
+    } else if(tipo.equalsIgnoreCase("6") || tipo.equalsIgnoreCase("Sector Operations")){
+        tipo = "Sector Operations";
+    } else {
+        System.out.println("Invalid type. Please try again.");
+        return;
+    }
+            
+    String sql = "UPDATE orientEn SET tipo = ? WHERE titulo = ?";
+    PreparedStatement stmt = conn.prepareStatement(sql);
+    stmt.setString(1, tipo);
+    stmt.setString(2, titulo);
+    int rowsAffected = stmt.executeUpdate();
+
+    if (rowsAffected > 0) {
+        System.out.println("Type updated successfully!");
+    } else {
+        System.out.println("No orientation found with title: " + titulo);
+    }
+
+    } else {
+        System.out.println("Invalid option. Please try again.");
+        return;
+    }
+
+    } catch (Exception e) {
+        System.out.println("Error updating orientation type: " + e.getMessage());
+    }
+
+    input.close();
+
+}
+
+
+
+public static void AtualizarOrientacaoEn(){
+
+    Scanner input = new Scanner(System.in);
+
+    try (Connection conn = ConexaoBD.getConexao()) {
+        
+    System.out.println("===================================================");
+    System.out.println("Do you want to search the orientation by ID or Title? (Type 'ID' or 'Title')");
+    System.out.println("---------------------------------------------------");
+    String escolha = input.nextLine();
+
+    if(escolha.equalsIgnoreCase("Id")){
+
+        System.out.println("===================================================");
+        System.out.println("Enter the ID of the orientation you want to update:");
+        System.out.println("---------------------------------------------------");
+        int id = input.nextInt();
+        System.out.println("===================================================");
+        input.nextLine(); // Clear scanner buffer
+        System.out.println("Enter the new orientation:");
+        System.out.println("----------------------------------------------------");
+        String novaOrientacao = input.nextLine();
+
+        String sql = "UPDATE orientEn SET orient = ? WHERE id = ?";
+        PreparedStatement stmt = ConexaoBD.getConexao().prepareStatement(sql);
+        stmt.setString(1, novaOrientacao);
+        stmt.setInt(2, id);
+        int rowsAffected = stmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Orientation updated successfully!");
+        } else {
+            System.out.println("No orientation found with ID: " + id);
+        }
+
+    } else if(escolha.equalsIgnoreCase("Titulo")){
+
+        System.out.println("===================================================");
+        System.out.println("Enter the title of the orientation you want to update:");
+        System.out.println("---------------------------------------------------");
+        String titulo = input.nextLine();
+        System.out.println("===================================================");
+        System.out.println("Enter the new orientation:");
+        System.out.println("----------------------------------------------------");
+        String novaOrientacao = input.nextLine();
+
+        String sql = "UPDATE orientEn SET orient = ? WHERE titulo = ?";
+        PreparedStatement stmt = ConexaoBD.getConexao().prepareStatement(sql);
+        stmt.setString(1, novaOrientacao);
+        stmt.setString(2, titulo);
+        int rowsAffected = stmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Orientation updated successfully!");
+        } else {
+            System.out.println("Error searching for " + titulo + " in the system");
+        }
+
+    } else {
+            System.out.println("Invalid option. Please try again.");
+            return;
+        }
+    }catch (Exception e) {
+        System.out.println("Error updating orientation: " + e.getMessage());
+    } 
+
+    input.close();
+    
+}
+
 }
