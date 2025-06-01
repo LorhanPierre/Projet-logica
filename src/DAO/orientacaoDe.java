@@ -19,9 +19,9 @@ public class orientacaoDe {
         System.out.println("+==================================================================+");
         System.out.println("|                          Arten von Richtlinien                   |");
         System.out.println("|------------------------------------------------------------------|");
-        System.out.println("|   1 Bedienungsanleitung   2 Sicherheitsverfahren                |");
-        System.out.println("|   3 Wartung und Reparatur 4 Tests und Diagnostik                |");
-        System.out.println("|   5 Verhaltenskodex       6 Sektorale Operationen               |");
+        System.out.println("|   1 Bedienungsanleitung    2 Sicherheitsverfahren                |");
+        System.out.println("|   3 Wartung und Reparatur  4 Tests und Diagnostik                |");
+        System.out.println("|   5 Verhaltenskodex        6 Sektorale Operationen               |");
         System.out.println("+==================================================================+");
         System.out.print("| Wählen Sie den Typ der Richtlinie, die Sie registrieren möchten:");
         String tipo = input.nextLine();
