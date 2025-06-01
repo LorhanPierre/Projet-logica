@@ -2,7 +2,7 @@ package services;
 
 import DAO.*;
 import java.util.Scanner;
-import app.wegone.*;
+import app.wegone.App;
 
 public class menuInicialPT {
 	
