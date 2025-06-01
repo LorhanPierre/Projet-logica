@@ -2,7 +2,7 @@ package services;
 
 import DAO.*;
 import java.util.Scanner;
-import app.wegone.*;
+//import app.wegone.*;
 
 public class menuInicialPT {
 	
@@ -30,7 +30,7 @@ public class menuInicialPT {
 	//1 CADASTRO ///======================================================================================================================    
 	    
 	    if (acao.equals("1")) {
-	    	orientacaoPT.cadastroPt();
+	    	//orientacaoPT.cadastroPt();
 			menuPT();
 	    	
 	//2 EXCLUSÂO ///======================================================================================================================    
@@ -49,10 +49,10 @@ public class menuInicialPT {
 		    String excluir = input.nextLine();
 		    
 		    if (excluir.equals("1")) {
-		    	orientacaoPT.ExcluirPorID();
+		    	//orientacaoPT.ExcluirPorID();
 	    	
 		    } else if (excluir.equals("2")) {
-		    	orientacaoPT.ExcluirPorTitulo();
+		    	//orientacaoPT.ExcluirPorTitulo();
 	    	
 		    } else {
 	    	System.out.println("\nAção inexistente, confira o numero digitado e tente novamente\n" );
@@ -141,7 +141,7 @@ public class menuInicialPT {
 	    	
 	    } else if (acao.equals("5")) {
 
-			App.setLanguage();
+			//App.setLanguage();
 	
 	//6 ENCERRAR ///======================================================================================================================    
 	    	
@@ -160,6 +160,8 @@ public class menuInicialPT {
 	    
 		} while (!valido);
 		
+
+		input.close();
 		
 	}
 

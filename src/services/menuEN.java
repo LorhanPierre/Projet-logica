@@ -2,7 +2,7 @@ package services;
 
 import DAO.orientacaoEn;
 import java.util.Scanner;
-import app.wegone.*;
+//import app.wegone.*;
 
 public class menuEN {
 
@@ -10,7 +10,7 @@ public class menuEN {
 	
 	
 //MENU INICIAL - lista todas ações que podem ser executadas no sistema em português///=======================================================
-	public static void menuEN () { // Method name remains menuPT, but its content will be translated
+	public static void menuEn() { // Method name remains menuPT, but its content will be translated
 		
 		boolean valido = true;
 		Scanner input = new Scanner (System.in);
@@ -32,7 +32,7 @@ public class menuEN {
 	    
 	    if (acao.equals("1")) {
 	    	orientacaoEn.cadastroEN(); // Assuming this method also has PT messages to be translated separately
-			menuEN.menuEN();
+			menuEN.menuEn();
 
 	//2 EXCLUSÂO ///======================================================================================================================    
 	    	
@@ -62,7 +62,7 @@ public class menuEN {
 	    
 			} while (!excluirValido);
 	    	
-	    	menuEN.menuEN();
+	    	menuEN.menuEn();
 		    
 	//3 BUSCA ///======================================================================================================================    
 	    	
@@ -101,7 +101,7 @@ public class menuEN {
 		    
 			} while (!buscaValida);
 	    	
-			menuEN.menuEN();	
+			menuEN.menuEn();	
 
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
@@ -136,13 +136,13 @@ public class menuEN {
 		    
 			} while (!edicaoValida);
 	    	
-	    	menuEN.menuEN();
+	    	menuEN.menuEn();
 	    
 	//5 MUDAR IDIOMA ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("5")) {
 
-			App.setLanguage();
+			//App.setLanguage();
 	
 	//6 ENCERRAR ///======================================================================================================================    
 	    	
@@ -161,6 +161,7 @@ public class menuEN {
 	    
 		} while (!valido);
 		
+		input.close(); // Close the scanner to prevent resource leaks
 		
 	}
 

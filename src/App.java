@@ -20,6 +20,8 @@ public class App {
         
         //orientacaoEs test = new orientacaoEs();
         //test.ListarTodaTabelaES();
+        orientacaoPT orientacaoPt = new orientacaoPT();
+        orientacaoPt.ExcluirPorTitulo();
         
         System.out.println("====================================================================");
         System.out.println("||                      Welcome to WEG one                        ||");
@@ -53,7 +55,7 @@ public class App {
         	menuInicialPT.menuPT();
         	
         } else if (idiomaAtual.equalsIgnoreCase("english") || idiomaAtual.equalsIgnoreCase("EN") || idiomaAtual.equalsIgnoreCase("2") ) {
-        	menuEN.menuEN();
+        	menuEN.menuEn();
         	
         } else if (idiomaAtual.equalsIgnoreCase("deutsch") || idiomaAtual.equalsIgnoreCase("DE") || idiomaAtual.equalsIgnoreCase("3") ) {
         	System.out.println("menu em desenvolviento");
@@ -72,6 +74,6 @@ public class App {
         
 		} while (!valido);
 
-		
+		input.close();
 	}
 }

@@ -7,7 +7,7 @@ import java.util.*;
 public class orientacaoPT {
 
     //METEDO DE CADASTRO DE ORIENTAÇÕES EM PORTUGUÊS///=========================================================================================
-    public static void cadastroPt(){
+    public void cadastroPt(){
 
     Scanner input = new Scanner(System.in);
 
@@ -18,14 +18,38 @@ public class orientacaoPT {
         String tipo;
         String Orientacao;
 
+        String tipoEn="", tipoFr="", tipoEs="", tipoDe="";
+        String tituloEn, tituloFr, tituloEs, tituloDe;
+        String orientEn, orientFr, orientEs, orientDe;
+
+
+
         do {
 
             entradaValida = true;
-
+        
+        System.out.println("!Alerta! Você terá que cadastrar a orientação em português, inglês,\nfrancês, espanhol e alemão.");
         System.out.println("=====================================================================");
         System.out.println("Digite o titulo da orientação que deseja cadastrar:");
 	    System.out.println("--------------------------------------------------------------------");
         titulo = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("Digite o titulo da orientação em ingles:");
+        System.out.println("--------------------------------------------------------------------");
+        tituloEn = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("Digite o titulo da orientação em francês:");
+        System.out.println("--------------------------------------------------------------------");
+        tituloFr = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("Digite o titulo da orientação em espanhol:");
+        System.out.println("--------------------------------------------------------------------");
+        tituloEs = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("Digite o titulo da orientação em alemão:");
+        System.out.println("--------------------------------------------------------------------");
+        tituloDe = input.nextLine();
+        System.out.println("+==================================================================+");
 
             if(titulo.isEmpty()){
                 System.out.println("Este campo precisa ser preenchido");
@@ -51,21 +75,45 @@ public class orientacaoPT {
 
         if(tipo.equalsIgnoreCase("1") || tipo.equalsIgnoreCase("Manual de Operação")){
             tipo = "Manual de Operação";
+            tipoEn = "Operation Manual";  
+            tipoFr = "Manuel d'opération";
+            tipoEs = "Manual de Operaciones";
+            tipoDe = "Betriebsanleitung";
    
         } else if(tipo.equalsIgnoreCase("2") || tipo.equalsIgnoreCase("Procedimento de Segurança")){
             tipo = "Procedimento de Segurança";
+            tipoEn = "Safety Procedure";
+            tipoFr = "Procédure de sécurité";
+            tipoEs = "Procedimiento de Seguridad";
+            tipoDe = "Sicherheitsverfahren";
             
         } else if(tipo.equalsIgnoreCase("3") || tipo.equalsIgnoreCase("Manutenção e Reparos")){
             tipo = "Manutenção e Reparos";
+            tipoEn = "Maintenance and Repairs";
+            tipoFr = "Maintenance et Réparation";
+            tipoEs = "Mantenimiento y Reparación";
+            tipoDe = "Wartung und Reparatur";
             
         } else if(tipo.equalsIgnoreCase("4") || tipo.equalsIgnoreCase("Testes e Diagnóstico")){
             tipo = "Testes e Diagnóstico";
+            tipoEn = "Testing and Diagnosis";
+            tipoFr = "Tests et diagnostics";
+            tipoEs = "Pruebas y Diagnósticos";
+            tipoDe = "Tests und Diagnosen";
             
         } else if(tipo.equalsIgnoreCase("5") || tipo.equalsIgnoreCase("Manual de Conduta")){
             tipo = "Manual de Conduta";
+            tipoEn = "Code of Conduct";
+            tipoFr = "Code de conduite";
+            tipoEs = "Código de Conducta";
+            tipoDe = "Verhaltenskodex";
             
         } else if(tipo.equalsIgnoreCase("6") || tipo.equalsIgnoreCase("Operações Setoriais")){
             tipo = "Operações Setoriais";
+            tipoEn = "Sector Operations";
+            tipoFr = "Opérations sectorielles";
+            tipoEs = "Operaciones Sectoriales";
+            tipoDe = "Sektoroperationen";
             
         } else {
             System.out.println("Tipo inválido. Por favor, tente novamente.");
@@ -78,10 +126,27 @@ public class orientacaoPT {
         do {
    
             //entradaValida = true;
-	    System.out.println("|------------------------------------------------------------------|");
-        System.out.println("| Digite a orientação que deseja cadastrar:");
+        System.out.println("+==================================================================+");
+        System.out.println("| Digite a orientação que deseja cadastrar(Português):");
 	    System.out.println("|------------------------------------------------------------------|");
         Orientacao = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("| Digite a orientação que deseja cadastrar(Inglês):");
+        System.out.println("|------------------------------------------------------------------|");
+        orientEn = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("| Digite a orientação que deseja cadastrar(Francês):");
+	    System.out.println("|------------------------------------------------------------------|");
+        orientFr = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("| Digite a orientação que deseja cadastrar(Espanhol):");
+        System.out.println("|------------------------------------------------------------------|");
+        orientEs = input.nextLine();
+        System.out.println("+==================================================================+");
+        System.out.println("| Digite a orientação que deseja cadastrar(Alemão):");
+        System.out.println("|------------------------------------------------------------------|");
+        orientDe = input.nextLine();
+        System.out.println("+==================================================================+");
 
             if (Orientacao.isEmpty()){
                 System.out.println("Este campo precisa ser preenchido");
@@ -101,12 +166,41 @@ public class orientacaoPT {
         stmt.setString(3, Orientacao);
         stmt.executeUpdate();
 
+        String sqlEn=  "INSERT INTO orientEn (titulo, tipo, orient) VALUES (?,?, ?)";
+        PreparedStatement stmtEn = conn.prepareStatement(sqlEn);
+        stmtEn.setString(1, tituloEn);
+        stmtEn.setString(2, tipoEn);
+        stmtEn.setString(3, orientEn);
+        stmtEn.executeUpdate();
+
+        String sqlEs=  "INSERT INTO orientEs (titulo, tipo, orient) VALUES (?,?, ?)";
+        PreparedStatement stmtEs = conn.prepareStatement(sqlEs);
+        stmtEs.setString(1, tituloEs);
+        stmtEs.setString(2, tipoEs);
+        stmtEs.setString(3, orientEs);
+        stmtEs.executeUpdate();
+
+        String sqlFr=  "INSERT INTO orientFr (titulo, tipo, orient) VALUES (?,?, ?)";
+        PreparedStatement stmtFr = conn.prepareStatement(sqlFr);
+        stmtFr.setString(1, tituloFr);
+        stmtFr.setString(2, tipoFr);
+        stmtFr.setString(3, orientFr);
+        stmtFr.executeUpdate();
+
+        String sqlDe =  "INSERT INTO orientDe (titulo, tipo, orient) VALUES (?,?, ?)";
+        PreparedStatement stmtDe = conn.prepareStatement(sqlDe);
+        stmtDe.setString(1, tituloDe);
+        stmtDe.setString(2, tipoDe);
+        stmtDe.setString(3, orientDe);
+        stmtDe.executeUpdate();
+
         System.out.println("Orientação em Pt-BR cadastrada com sucesso!");
 
     } catch (SQLException e) {
         System.out.println("Erro ao cadastrar orientação: " + e.getMessage());
     } 
     
+    input.close();
     
     }
 
@@ -189,6 +283,7 @@ public class orientacaoPT {
         System.out.println("Erro ao buscar orientações: " + e.getMessage());
     }
 
+    input.close();
    
     }
 
@@ -224,6 +319,7 @@ public class orientacaoPT {
             System.out.println("Erro ao buscar orientação: " + e.getMessage());
         }
         
+        input.close();
     }
 
     public static void BuscaPorTitulo(){
@@ -258,16 +354,19 @@ public class orientacaoPT {
             System.out.println("Erro ao buscar orientação: " + e.getMessage());
         }
         
+        input.close();
     }
 
     //FIM DOS METODOS DE BUSCA/ VIEWS///========================================================================================
 
     //METODO DE EXCLUSÃO///========================================================================================
 
-    public static void ExcluirPorID() {
+    public void ExcluirPorID() {
         Scanner input = new Scanner(System.in);
 
+
         try (Connection conn = ConexaoBD.getConexao()) {
+            System.out.println("Você está prestes a excluir uma orientação em todos os idiomas.");
             System.out.println("===================================================");
             System.out.println("Digite o ID da orientação que deseja excluir:");
             System.out.println("---------------------------------------------------");
@@ -280,25 +379,49 @@ public class orientacaoPT {
                 System.out.println("Exclusão cancelada.");
                 return;
             } 
+
+            
                 
             String sql = "DELETE FROM orientPt WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             int rowsAffected = stmt.executeUpdate();
 
+            String sqlEn = "DELETE FROM orientEn WHERE id = ?";
+            PreparedStatement stmtEn = conn.prepareStatement(sqlEn);
+            stmtEn.setInt(1, id);
+            int rowsAffectedEn = stmtEn.executeUpdate();
+
+            String sqlEs = "DELETE FROM orientEs WHERE id = ?";
+            PreparedStatement stmtEs = conn.prepareStatement(sqlEs);
+            stmtEs.setInt(1, id);
+            int rowsAffectedEs = stmtEs.executeUpdate();
+
+            String sqlFr= "DELETE FROM orientFr WHERE id = ?";
+            PreparedStatement stmtFr = conn.prepareStatement(sqlFr);
+            stmtFr.setInt(1, id);
+            int rowsAffectedFr = stmtFr.executeUpdate();
+
+            String sqlDe = "DELETE FROM orientDe WHERE id = ?";
+            PreparedStatement stmtDe = conn.prepareStatement(sqlDe);
+            stmtDe.setInt(1, id);
+            int rowsAffectedDe = stmtDe.executeUpdate();
+
             
             if (rowsAffected > 0) {
                 System.out.println("Orientação excluída com sucesso!");
-            } else {
+            }else {
                 System.out.println("O ID: " + id + "não foi encontrado para exclusão");
             }
         } catch (SQLException e) {
             System.out.println("Erro ao excluir orientação: " + e.getMessage());
         }
+
+        input.close();
         
     }
 
-    public static void ExcluirPorTitulo() {
+    public void ExcluirPorTitulo() {
         Scanner input = new Scanner(System.in);
 
         try (Connection conn = ConexaoBD.getConexao()) {
@@ -315,20 +438,51 @@ public class orientacaoPT {
                 return;
             } 
 
-            String sql = "DELETE FROM orientPt WHERE titulo = ?";
+            String sql = "SELECT id FROM orientPt WHERE titulo = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, titulo);
-            int rowsAffected = stmt.executeUpdate();
+            ResultSet rs = stmt.executeQuery();
 
-            
+            if(rs.next()){
+                int id = rs.getInt("id");
+
+            String sqlPt = "DELETE FROM orientPt WHERE id = ?";
+            PreparedStatement stmtPt = conn.prepareStatement(sqlPt);
+            stmtPt.setInt(1, id);
+            int rowsAffected = stmtPt.executeUpdate();
+
+            String sqlEn = "DELETE FROM orientEn WHERE id = ?";
+            PreparedStatement stmtEn = conn.prepareStatement(sqlEn);
+            stmtEn.setInt(1, id);
+            int rowsAffectedEn = stmtEn.executeUpdate();
+
+            String sqlEs = "DELETE FROM orientEs WHERE id = ?";
+            PreparedStatement stmtEs = conn.prepareStatement(sqlEs);
+            stmtEs.setInt(1, id);
+            int rowsAffectedEs = stmtEs.executeUpdate();
+
+            String sqlFr= "DELETE FROM orientFr WHERE id = ?";
+            PreparedStatement stmtFr = conn.prepareStatement(sqlFr);
+            stmtFr.setInt(1, id);
+            int rowsAffectedFr = stmtFr.executeUpdate();
+
+            String sqlDe = "DELETE FROM orientDe WHERE id = ?";
+            PreparedStatement stmtDe = conn.prepareStatement(sqlDe);
+            stmtDe.setInt(1, id);
+            int rowsAffectedDe = stmtDe.executeUpdate();
+
+
             if (rowsAffected > 0) {
                 System.out.println("Orientação excluída com sucesso!");
             } else {
                 System.out.println("Nenhuma orientação encontrada com o título: " + titulo);
             }
+            }
         } catch (SQLException e) {
             System.out.println("Erro ao excluir orientação: " + e.getMessage());
         }
+
+        input.close();
         
     }
 
@@ -472,6 +626,8 @@ public class orientacaoPT {
         }catch (Exception e) {
         System.out.println("Erro ao atualizar orientação: " + e.getMessage());
      }
+
+     input.close();
      
 }
 
@@ -537,13 +693,14 @@ public static void AtualizarTituloOrientacao(){
 
         } else {
             System.out.println("Opção inválida. Por favor, tente novamente.");
-            return;
+
         }
         
     } catch (Exception e) {
         System.out.println("Erro ao atualizar título da orientação: " + e.getMessage()); 
     }
 
+    input.close();
 }
 
 
@@ -661,6 +818,8 @@ public static void AtualizarTipoOrientacao(){
         System.out.println("Erro ao atualizar tipo da orientação: " + e.getMessage());
     }
 
+    input.close();
+
 }
 
 
@@ -730,6 +889,8 @@ public static void AtualizarOrientacao(){
     }catch (Exception e) {
         System.out.println("Erro ao atualizar orientação: " + e.getMessage());
     } 
+
+    input.close();
     
 }
 
