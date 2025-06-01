@@ -1,7 +1,8 @@
 package services;
 
-import DAO.*;
+import DAO.orientacaoEn;
 import java.util.Scanner;
+import app.wegone.App;
 
 public class menuEN {
 
@@ -30,7 +31,7 @@ public class menuEN {
 	//1 CADASTRO ///======================================================================================================================    
 	    
 	    if (acao.equals("1")) {
-	    	orientacaoPT.cadastroPt(); // Assuming this method also has PT messages to be translated separately
+	    	orientacaoEn.cadastroEN(); // Assuming this method also has PT messages to be translated separately
 			menuEN.menuEN();
 
 	//2 EXCLUSÂO ///======================================================================================================================    
@@ -49,10 +50,10 @@ public class menuEN {
 		    String excluir = input.nextLine();
 		    
 		    if (excluir.equals("1")) {
-		    	orientacaoPT.ExcluirPorID(); // Assuming this method also has PT messages
+		    	orientacaoEn.ExcluirPorIDEN();; // Assuming this method also has PT messages
 	    	
 		    } else if (excluir.equals("2")) {
-		    	orientacaoPT.ExcluirPorTitulo(); // Assuming this method also has PT messages
+		    	orientacaoEn.ExcluirPorTituloEN(); // Assuming this method also has PT messages
 	    	
 		    } else {
 	    	System.out.println("\nNon-existent action, please check the entered number and try again.\n" ); // Translated "Ação inexistente, confira o numero digitado e tente novamente"
@@ -82,16 +83,16 @@ public class menuEN {
 		    String busca = input.nextLine();
 		    
 		    if (busca.equals("1")) {
-		    	orientacaoPT.ListarTodaTabela(); // Assuming PT messages
+		    	orientacaoEn.ListarTodaTabelaEN(); // Assuming PT messages
 		    	
 		    }else if (busca.equals("2")) {
-		    	orientacaoPT.ListarTudoPorTipo(); // Assuming PT messages
+		    	orientacaoEn.ListarTudoPorTipoEN(); // Assuming PT messages
 		    	
 		    } else if (busca.equals("3")) {
-		    	orientacaoPT.BuscaPorID(); // Assuming PT messages
+		    	orientacaoEn.BuscaPorIDEN(); // Assuming PT messages
 		    	
 		    } else if (busca.equals("4")) {
-		    	orientacaoPT.BuscaPorTitulo(); // Assuming PT messages
+		    	orientacaoEn.BuscaPorTituloEN(); // Assuming PT messages
 		    	
 		    } else {
 		    	System.out.println("\nNon-existent action, please check the entered number and try again.\n" ); // Translated
@@ -117,16 +118,16 @@ public class menuEN {
 			String edita = input.nextLine();
 		    
 		    if (edita.equals("1")) {
-		    	orientacaoPT.AtualizarTodaAOrientacao(); // Assuming PT messages
+		    	orientacaoEn.AtualizarTodaAOrientacaoEN(); // Assuming PT messages
 		    	
 		    }else if (edita.equals("2")) {
-		    	orientacaoPT.AtualizarTituloOrientacao(); // Assuming PT messages
+		    	orientacaoEn.AtualizarTituloOrientacaoEN(); // Assuming PT messages
 		    	
 		    } else if (edita.equals("3")) {
-		    	orientacaoPT.AtualizarTipoOrientacao(); // Assuming PT messages
+		    	orientacaoEn.AtualizarTipoOrientacaoEN(); // Assuming PT messages
 		    	
 		    } else if (edita.equals("4")) {
-		    	orientacaoPT.AtualizarOrientacao(); // Assuming PT messages
+		    	orientacaoEn.AtualizarOrientacaoEN(); // Assuming PT messages
 		    	
 		    } else {
 		    	System.out.println("\nNon-existent action, please check the entered number and try again.\n" ); // Translated
@@ -141,7 +142,7 @@ public class menuEN {
 	    	
 	    } else if (acao.equals("5")) {
 
-			menuEN.setLanguage();
+			App.setLanguage();
 	
 	//6 ENCERRAR ///======================================================================================================================    
 	    	
