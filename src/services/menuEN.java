@@ -2,7 +2,7 @@ package services;
 
 import DAO.orientacaoEn;
 import java.util.Scanner;
-import app.wegone.*;
+//import app.wegone.*;
 
 public class menuEN {
 
@@ -10,7 +10,7 @@ public class menuEN {
 	
 	
 //MENU INICIAL - lista todas ações que podem ser executadas no sistema em português///=======================================================
-	public static void menuEN () { // Method name remains menuPT, but its content will be translated
+	public void menuInicialEN () { // Method name remains menuPT, but its content will be translated
 		
 		boolean valido = true;
 		Scanner input = new Scanner (System.in);
@@ -32,7 +32,7 @@ public class menuEN {
 	    
 	    if (acao.equals("1")) {
 	    	orientacaoEn.cadastroEN(); // Assuming this method also has PT messages to be translated separately
-			menuEN.menuEN();
+			menuInicialEN();
 
 	//2 EXCLUSÂO ///======================================================================================================================    
 	    	
@@ -62,8 +62,7 @@ public class menuEN {
 	    
 			} while (!excluirValido);
 	    	
-	    	menuEN.menuEN();
-		    
+			menuInicialEN();		    
 	//3 BUSCA ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("3")) {
@@ -101,7 +100,7 @@ public class menuEN {
 		    
 			} while (!buscaValida);
 	    	
-			menuEN.menuEN();	
+			menuInicialEN();	
 
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
@@ -136,18 +135,17 @@ public class menuEN {
 		    
 			} while (!edicaoValida);
 	    	
-	    	menuEN.menuEN();
+	    	menuInicialEN();
 	    
 	//5 MUDAR IDIOMA ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("5")) {
 
-			App.setLanguage();
-	
-	//6 ENCERRAR ///======================================================================================================================    
-	    	
-	    } else if (acao.equals("6")) {
-		
+			idioma.setLanguage();
+
+	//6 ENCERRAR ///======================================================================================================================
+
+	    } else if (acao.equals("6")) {	
 			System.out.println("+==================================================================+");
 			System.out.println("\n               Thank you for using WEGone"); // Translated "Obrigado por utilizar o WEGone"
 			System.out.println("                         Come back soon!\n" ); // Translated "Volte sempre!"
