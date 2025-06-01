@@ -5,12 +5,9 @@ import java.util.Scanner;
 //import app.wegone.*;
 
 public class menuEN {
-
-
-	
 	
 //MENU INICIAL - lista todas ações que podem ser executadas no sistema em português///=======================================================
-	public void menuInicialEN () { // Method name remains menuPT, but its content will be translated
+	public static void menuInicialEN () { // Method name remains menuPT, but its content will be translated
 		
 		boolean valido = true;
 		Scanner input = new Scanner (System.in);
@@ -20,9 +17,9 @@ public class menuEN {
 		System.out.println("+==================================================================+");
 	    System.out.println("|                         Initial Menu                             |"); // Translated "Menu Inicial"
 	    System.out.println("|------------------------------------------------------------------|");
-	    System.out.println("|   1 Register new guidance       2 Delete a guidance          |"); // Translated "Cadastrar nova orientação" and "Excluir uma orientação"
-	    System.out.println("|   3 Search for a guidance       4 Edit existing guidance     |"); // Translated "Buscar por uma orientação" and "Editar orientação existente"
-	    System.out.println("|   5 Change language               6 Close and exit             |"); // Translated "Mudar idioma" and "Encerrar e sair"
+	    System.out.println("|     1 Register new guidance       2 Delete a guidance            |"); // Translated "Cadastrar nova orientação" and "Excluir uma orientação"
+	    System.out.println("|     3 Search for a guidance       4 Edit existing guidance       |"); // Translated "Buscar por uma orientação" and "Editar orientação existente"
+	    System.out.println("|     5 Change language               6 Close and exit             |"); // Translated "Mudar idioma" and "Encerrar e sair"
 	    System.out.println("+==================================================================+");
 	    System.out.print("| Your action: "); // Translated "Sua ação :"
 	    

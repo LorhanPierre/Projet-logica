@@ -4,10 +4,10 @@ import DAO.*;
 import java.util.Scanner;
 
 
-public class menuInicialPT {
+public class menuPT{
 	
 //MENU INICIAL - lista todas ações que podem ser executadas no sistema em português///=======================================================
-	public static void menuPT () {
+	public static void menuInicialPT () {
 		
 		boolean valido = true;
 		Scanner input = new Scanner (System.in);
@@ -31,7 +31,7 @@ public class menuInicialPT {
 	    
 	    if (acao.equals("1")) {
 	    	orientacaoPT.cadastroPt();
-			menuPT();
+			menuInicialPT();
 	    	
 	//2 EXCLUSÂO ///======================================================================================================================    
 	    	
@@ -61,7 +61,7 @@ public class menuInicialPT {
 	    
 			} while (!excluirValido);
 	    	
-	    	menuInicialPT.menuPT();
+	    	menuInicialPT();
 		    
 	//3 BUSCA ///======================================================================================================================    
 	    	
@@ -100,7 +100,7 @@ public class menuInicialPT {
 		    
 			} while (!buscaValida);
 	    	
-	    	menuInicialPT.menuPT();
+	    	menuInicialPT();
 	    	
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
@@ -135,7 +135,7 @@ public class menuInicialPT {
 		    
 			} while (!edicaoValida);
 	    	
-	    	menuInicialPT.menuPT();
+	    	menuInicialPT();
 	    
 	//5 MUDAR IDIOMA ///======================================================================================================================    
 	    	
