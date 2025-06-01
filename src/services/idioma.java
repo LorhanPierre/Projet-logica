@@ -22,10 +22,10 @@ public class idioma {
         String idiomaAtual = input.nextLine();
         
         if (idiomaAtual.equalsIgnoreCase("portugues") || idiomaAtual.equalsIgnoreCase("PT") || idiomaAtual.equalsIgnoreCase("1") ) {
-        	menuInicialPT.menuPT();
+        	menuPT.menuInicialPT();
         	
         } else if (idiomaAtual.equalsIgnoreCase("english") || idiomaAtual.equalsIgnoreCase("EN") || idiomaAtual.equalsIgnoreCase("2") ) {
-        	menuEN.menuEN();
+        	menuEN.menuInicialEN();
         	
         } else if (idiomaAtual.equalsIgnoreCase("deutsch") || idiomaAtual.equalsIgnoreCase("DE") || idiomaAtual.equalsIgnoreCase("3") ) {
         	System.out.println("menu em desenvolviento");
