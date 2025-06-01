@@ -497,7 +497,7 @@ public static void AtualizarTituloOrientacaoEN(){
 
         } else {
             System.out.println("Invalid option. Please try again.");
-            return;
+
         }
 
     } catch (Exception e) {
