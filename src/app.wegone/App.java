@@ -1,3 +1,5 @@
+package app.wegone;
+
 import ConexaoBD.ConexaoBD;
 import java.sql.Connection;
 import java.util.Scanner;
