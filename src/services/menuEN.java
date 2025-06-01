@@ -2,7 +2,7 @@ package services;
 
 import DAO.orientacaoEn;
 import java.util.Scanner;
-import app.wegone.App;
+import app.wegone.*;
 
 public class menuEN {
 
