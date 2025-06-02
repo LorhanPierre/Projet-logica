@@ -35,7 +35,7 @@ public class menuES{
 	    	
 	    } else if (acao.equals("2")) {
 	    	
-	    	boolean excluirValido = true;
+	    	boolean excluirValido;
 	    	
 	    	do {
 		    System.out.println("------------------------------------------------------------------");	   
@@ -47,12 +47,15 @@ public class menuES{
 		    
 		    if (excluir.equals("1")) {
 		    	orientacaoEs.ExcluirPorIDEs(); 
+				excluirValido = true;
 	    	
 		    } else if (excluir.equals("2")) {
-		    	orientacaoEs.ExcluirPorTituloEs(); 
+		    	orientacaoEs.ExcluirPorTituloEs();
+				excluirValido = true; 
 
 		    } else {
 	    	System.out.println("\nAcción inexistente, verifique el número ingresado e inténtelo de nuevo.\n" ); 
+			excluirValido = false;
 		    }
 	    
 			} while (!excluirValido);
@@ -63,7 +66,7 @@ public class menuES{
 
 	    } else if (acao.equals("3")) {
 	    	
-	    	boolean buscaValida = true;
+	    	boolean buscaValida;
 	    	
 	    	do {
 	    	System.out.println("+==================================================================+");
@@ -79,15 +82,19 @@ public class menuES{
 		    
 		    if (busca.equals("1")) {
 		    	orientacaoEs.ListarTodaTabelaEs(); 
+				buscaValida = true;
 		    	
 		    }else if (busca.equals("2")) {
 		    	orientacaoEs.ListarTudoPorTipoEs(); 
+				buscaValida = true;
 		    	
 		    } else if (busca.equals("3")) {
 		    	orientacaoEs.BuscaPorIDEs();
+				buscaValida = true;
 		    	
 		    } else if (busca.equals("4")) {
 		    	orientacaoEs.BuscaPorTituloEs(); 
+				buscaValida = true;
 		    	
 		    } else {
 		    	System.out.println("\nAcción inexistente, verifique el número ingresado e inténtelo de nuevo.\n" ); 
@@ -101,7 +108,7 @@ public class menuES{
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("4")) {
-			boolean edicaoValida = true;
+			boolean edicaoValida;
 
 			do {
 			System.out.println("|------------------------------------------------------------------|");
@@ -114,16 +121,20 @@ public class menuES{
 		    
 		    if (edita.equals("1")) {
 		    	orientacaoEs.AtualizarTodaAOrientacaoEs(); 
+				edicaoValida = true;
 		    	
 		    }else if (edita.equals("2")) {
 		    	orientacaoEs.AtualizarTituloOrientacaoEs(); 
+				edicaoValida = true;
 
 		    } else if (edita.equals("3")) {
 		    	orientacaoEs.AtualizarTipoOrientacaoEs(); 
-		    	
+		    	edicaoValida = true;
+
 		    } else if (edita.equals("4")) {
 		    	orientacaoEs.AtualizarOrientacaoEs(); 
-		    	
+		    	edicaoValida = true;
+
 		    } else {
 		    	System.out.println("\nAcción inexistente, verifique el número ingresado e inténtelo de nuevo.\n" ); 
 		    	edicaoValida = false;

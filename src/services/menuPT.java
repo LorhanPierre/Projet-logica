@@ -35,7 +35,7 @@ public class menuPT{
 	    	
 	    } else if (acao.equals("2")) {
 	    	
-	    	boolean excluirValido = true;
+	    	boolean excluirValido;
 	    	
 	    	do {
 		    System.out.println("------------------------------------------------------------------");	   
@@ -48,9 +48,11 @@ public class menuPT{
 		    
 		    if (excluir.equals("1")) {
 		    	orientacaoPT.ExcluirPorID();
+				excluirValido = true;
 	    	
 		    } else if (excluir.equals("2")) {
 		    	orientacaoPT.ExcluirPorTitulo();
+				excluirValido = true;
 	    	
 		    } else {
 	    	System.out.println("\nAção inexistente, confira o numero digitado e tente novamente\n" );
@@ -65,7 +67,7 @@ public class menuPT{
 	    	
 	    } else if (acao.equals("3")) {
 	    	
-	    	boolean buscaValida = true;
+	    	boolean buscaValida;
 	    	
 	    	do {
 	    	System.out.println("+==================================================================+");
@@ -81,15 +83,19 @@ public class menuPT{
 		    
 		    if (busca.equals("1")) {
 		    	orientacaoPT.ListarTodaTabela();
+				buscaValida = true;
 		    	
 		    }else if (busca.equals("2")) {
 		    	orientacaoPT.ListarTudoPorTipo();
+				buscaValida = true;
 		    	
 		    } else if (busca.equals("3")) {
 		    	orientacaoPT.BuscaPorID();
+				buscaValida = true;
 		    	
 		    } else if (busca.equals("4")) {
 		    	orientacaoPT.BuscaPorTitulo();
+				buscaValida = true;
 		    	
 		    } else {
 		    	System.out.println("\nAção inexistente, confira o numero digitado e tente novamente\n" );
@@ -103,7 +109,8 @@ public class menuPT{
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("4")) {
-			boolean edicaoValida = true;
+
+			boolean edicaoValida;
 
 			do {
 			System.out.println("|------------------------------------------------------------------|");
@@ -116,15 +123,19 @@ public class menuPT{
 		    
 		    if (edita.equals("1")) {
 		    	orientacaoPT.AtualizarTodaAOrientacao();
+				edicaoValida = true;
 		    	
 		    }else if (edita.equals("2")) {
 		    	orientacaoPT.AtualizarTituloOrientacao();
+				edicaoValida = true;
 		    	
 		    } else if (edita.equals("3")) {
 		    	orientacaoPT.AtualizarTipoOrientacao();
+				edicaoValida = true;
 		    	
 		    } else if (edita.equals("4")) {
 		    	orientacaoPT.AtualizarOrientacao();
+				edicaoValida = true;
 		    	
 		    } else {
 		    	System.out.println("\nAção inexistente, confira o numero digitado e tente novamente\n" );
@@ -158,8 +169,7 @@ public class menuPT{
 	    
 		} while (!valido);
 		
-		
+		input.close();
 	}
 
-	
 }

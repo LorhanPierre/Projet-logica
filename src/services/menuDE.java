@@ -36,7 +36,7 @@ public class menuDE{
 
 	    } else if (acao.equals("2")) {
 
-	    	boolean excluirValido = true;
+	    	boolean excluirValido;
 
 	    	do {
 		    System.out.println("------------------------------------------------------------------");
@@ -50,9 +50,11 @@ public class menuDE{
 
 		    if (excluir.equals("1")) {
 		    	orientacaoDe.ExcluirPorIDDe();
+				excluirValido = true;
 
 		    } else if (excluir.equals("2")) {
 		    	orientacaoDe.ExcluirPorTituloDe();
+				excluirValido = true;
 
 		    } else {
 	    	System.out.println("\nUngültige Aktion, bitte überprüfen Sie die eingegebene Nummer und versuchen Sie es erneut.\n" ); // Ação inexistente, confira o numero digitado e tente novamente -> Ungültige Aktion, bitte überprüfen Sie die eingegebene Nummer und versuchen Sie es erneut.
@@ -67,7 +69,7 @@ public class menuDE{
 
 	    } else if (acao.equals("3")) {
 
-	    	boolean buscaValida = true;
+	    	boolean buscaValida;
 
 	    	do {
 	    	System.out.println("+==================================================================+");
@@ -83,15 +85,19 @@ public class menuDE{
 
 		    if (busca.equals("1")) {
 		    	orientacaoDe.ListarTodaTabelaDe();
+				buscaValida = true;
 
 		    }else if (busca.equals("2")) {
 		    	orientacaoDe.ListarTudoPorTipoDe();
+				buscaValida = true;
 
 		    } else if (busca.equals("3")) {
 		    	orientacaoDe.BuscaPorIDDe();
+				buscaValida = true;
 
 		    } else if (busca.equals("4")) {
 		    	orientacaoDe.BuscaPorTituloDe();
+				buscaValida = true;
 
 		    } else {
 		    	System.out.println("\nUngültige Aktion, bitte überprüfen Sie die eingegebene Nummer und versuchen Sie es erneut.\n" );
@@ -105,7 +111,7 @@ public class menuDE{
 	//4 EDIÇÂO ///======================================================================================================================
 
 	    } else if (acao.equals("4")) {
-			boolean edicaoValida = true;
+			boolean edicaoValida;
 
 			do {
 			System.out.println("|------------------------------------------------------------------|");
@@ -118,15 +124,19 @@ public class menuDE{
 
 		    if (edita.equals("1")) {
 		    	orientacaoDe.AtualizarTodaAOrientacaoDe();
+				edicaoValida = true;
 
 		    }else if (edita.equals("2")) {
 		    	orientacaoDe.AtualizarTituloOrientacaoDe();
+				edicaoValida = true;
 
 		    } else if (edita.equals("3")) {
 		    	orientacaoDe.AtualizarTipoOrientacaoDe();
+		    	edicaoValida = true;
 
 		    } else if (edita.equals("4")) {
 		    	orientacaoDe.AtualizarOrientacaoDe();
+				edicaoValida = true;
 
 		    } else {
 		    	System.out.println("\nUngültige Aktion, bitte überprüfen Sie die eingegebene Nummer und versuchen Sie es erneut.\n" );

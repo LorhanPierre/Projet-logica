@@ -191,7 +191,6 @@ public class orientacaoEn {
         System.out.println("Error while registering the instruction: " + e.getMessage());
     }
 
-    input.close();
 }
 
     //=====================================================================================================================================
@@ -269,7 +268,6 @@ public static void ListarTudoPorTipoEn() {
         System.out.println("Error retrieving guidances: " + e.getMessage());
     }
 
-    input.close();
 }
 
 public static void BuscaPorIDEn() {
@@ -302,7 +300,6 @@ public static void BuscaPorIDEn() {
         System.out.println("Error searching guidance: " + e.getMessage());
     }
 
-    input.close();
 }
 
 public static void BuscaPorTituloEn() {
@@ -337,7 +334,6 @@ public static void BuscaPorTituloEn() {
         System.out.println("Error searching guidance: " + e.getMessage());
     }
 
-    input.close();
 }
 
     //=====================================================================================================================================
@@ -394,7 +390,6 @@ public static void BuscaPorTituloEn() {
         System.out.println("Error deleting guidance: " + e.getMessage());
     }
 
-    input.close();
 }
 
 public static void ExcluirPorTituloEn() {
@@ -460,7 +455,6 @@ public static void ExcluirPorTituloEn() {
         System.out.println("Error deleting guidance: " + e.getMessage());
     }
 
-    input.close();
 }
 
     //=====================================================================================================================================
@@ -598,7 +592,6 @@ public static void ExcluirPorTituloEn() {
         System.out.println("Error updating guidance: " + e.getMessage());
     }
 
-    input.close();
 }
 
 
@@ -671,7 +664,6 @@ public static void ExcluirPorTituloEn() {
         System.out.println("Error updating orientation title: " + e.getMessage()); 
     }
 
-    input.close();
 }
 
 
@@ -789,8 +781,6 @@ public static void AtualizarTipoOrientacaoEn(){
         System.out.println("Error updating orientation type: " + e.getMessage());
     }
 
-    input.close();
-
 }
 
 
@@ -861,8 +851,6 @@ public static void AtualizarOrientacaoEn(){
         System.out.println("Error updating orientation: " + e.getMessage());
     } 
 
-    input.close();
-    
 }
 
 }

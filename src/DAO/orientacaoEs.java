@@ -190,7 +190,7 @@ public class orientacaoEs {
         System.out.println("Error al registrar la orientación: " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
     //==================================================================================================================
@@ -268,7 +268,6 @@ public static void ListarTudoPorTipoEs() {
         System.out.println("Error al obtener orientaciones: " + e.getMessage());
     }
 
-    input.close();
 }
 
 public static void BuscaPorIDEs() {
@@ -301,7 +300,7 @@ public static void BuscaPorIDEs() {
         System.out.println("Error al buscar orientación: " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
 public static void BuscaPorTituloEs() {
@@ -336,7 +335,6 @@ public static void BuscaPorTituloEs() {
         System.out.println("Error al buscar orientación: " + e.getMessage());
     }
 
-    input.close();
 }
     //==================================================================================================================
 
@@ -392,7 +390,6 @@ public static void BuscaPorTituloEs() {
         System.out.println("Error al eliminar orientación: " + e.getMessage());
     }
 
-    input.close();
 }
 
 public static void ExcluirPorTituloEs() {
@@ -458,7 +455,6 @@ public static void ExcluirPorTituloEs() {
         System.out.println("Error al eliminar orientación: " + e.getMessage());
     }
 
-    input.close();
 }
 
     //==================================================================================================================
@@ -596,7 +592,6 @@ public static void ExcluirPorTituloEs() {
         System.out.println("Error al actualizar la orientación: " + e.getMessage());
     }
 
-    input.close();
 }
 
     public static void AtualizarTituloOrientacaoEs() {
@@ -667,7 +662,6 @@ public static void ExcluirPorTituloEs() {
         System.out.println("Error al actualizar el título de la orientación: " + e.getMessage());
     }
 
-    input.close();
 }
 
 public static void AtualizarTipoOrientacaoEs() {
@@ -784,8 +778,6 @@ public static void AtualizarTipoOrientacaoEs() {
         System.out.println("Error al actualizar el tipo de la orientación: " + e.getMessage());
     }
 
-    input.close();
-
 }
 
 public static void AtualizarOrientacaoEs() {
@@ -854,7 +846,6 @@ public static void AtualizarOrientacaoEs() {
         System.out.println("Error al actualizar la orientación: " + e.getMessage());
     }
 
-    input.close();
 
 }
 
