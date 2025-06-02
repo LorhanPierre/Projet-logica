@@ -189,7 +189,7 @@ public class orientacaoFr {
         System.out.println("Erreur lors de l'enregistrement de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
     //============================================================================================================================
@@ -267,7 +267,7 @@ public static void ListarTudoPorTipoFr() {
         System.out.println("Erreur lors de la récupération des orientations : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
 public static void BuscaPorIDFr() {
@@ -300,7 +300,7 @@ public static void BuscaPorIDFr() {
         System.out.println("Erreur lors de la recherche de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
 public static void BuscaPorTituloFr() {
@@ -335,7 +335,7 @@ public static void BuscaPorTituloFr() {
         System.out.println("Erreur lors de la recherche de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
     //============================================================================================================================
@@ -393,7 +393,7 @@ public static void BuscaPorTituloFr() {
         System.out.println("Erreur lors de la suppression de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
 public static void ExcluirPorTituloFr() {
@@ -460,7 +460,7 @@ public static void ExcluirPorTituloFr() {
         System.out.println("Erreur lors de la suppression de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+   
 }
 
     //============================================================================================================================
@@ -598,7 +598,7 @@ public static void ExcluirPorTituloFr() {
         System.out.println("Erreur lors de la mise à jour de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
     public static void AtualizarTituloOrientacaoFr() {
@@ -669,7 +669,7 @@ public static void ExcluirPorTituloFr() {
         System.out.println("Erreur lors de la mise à jour du titre de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 }
 
 public static void AtualizarTipoOrientacaoFr() {
@@ -786,7 +786,7 @@ public static void AtualizarTipoOrientacaoFr() {
         System.out.println("Erreur lors de la mise à jour du type d'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 
 }
 
@@ -856,7 +856,7 @@ public static void AtualizarOrientacaoFr() {
         System.out.println("Erreur lors de la mise à jour de l'orientation : " + e.getMessage());
     }
 
-    input.close();
+    
 
 }
 

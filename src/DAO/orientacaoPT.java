@@ -200,7 +200,7 @@ public class orientacaoPT {
         System.out.println("Erro ao cadastrar orientação: " + e.getMessage());
     } 
     
-    input.close();
+    
     
     }
 
@@ -283,7 +283,7 @@ public class orientacaoPT {
         System.out.println("Erro ao buscar orientações: " + e.getMessage());
     }
 
-    input.close();
+    
    
     }
 
@@ -319,7 +319,7 @@ public class orientacaoPT {
             System.out.println("Erro ao buscar orientação: " + e.getMessage());
         }
         
-        input.close();
+        
     }
 
     public static void BuscaPorTitulo(){
@@ -354,7 +354,6 @@ public class orientacaoPT {
             System.out.println("Erro ao buscar orientação: " + e.getMessage());
         }
         
-        input.close();
     }
 
     //FIM DOS METODOS DE BUSCA/ VIEWS///========================================================================================
@@ -416,8 +415,6 @@ public class orientacaoPT {
         } catch (SQLException e) {
             System.out.println("Erro ao excluir orientação: " + e.getMessage());
         }
-
-        input.close();
         
     }
 
@@ -482,7 +479,6 @@ public class orientacaoPT {
             System.out.println("Erro ao excluir orientação: " + e.getMessage());
         }
 
-        input.close();
         
     }
 
@@ -627,7 +623,7 @@ public class orientacaoPT {
         System.out.println("Erro ao atualizar orientação: " + e.getMessage());
      }
 
-     input.close();
+     
      
 }
 
@@ -700,7 +696,6 @@ public static void AtualizarTituloOrientacao(){
         System.out.println("Erro ao atualizar título da orientação: " + e.getMessage()); 
     }
 
-    input.close();
 }
 
 
@@ -818,8 +813,6 @@ public static void AtualizarTipoOrientacao(){
         System.out.println("Erro ao atualizar tipo da orientação: " + e.getMessage());
     }
 
-    input.close();
-
 }
 
 
@@ -890,7 +883,7 @@ public static void AtualizarOrientacao(){
         System.out.println("Erro ao atualizar orientação: " + e.getMessage());
     } 
 
-    input.close();
+    
     
 }
 

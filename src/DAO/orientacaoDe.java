@@ -11,7 +11,7 @@ public static void cadastroDe() {
 
     try (Connection conn = ConexaoBD.getConexao()) {
 
-        boolean entradaValida = true;
+        boolean entradaValida;
         String titulo;
         String tipo;
         String Orientacao;

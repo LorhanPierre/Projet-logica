@@ -19,7 +19,7 @@ public class menuEN {
 	    System.out.println("|------------------------------------------------------------------|");
 	    System.out.println("|     1 Register new guidance       2 Delete a guidance            |"); 
 	    System.out.println("|     3 Search for a guidance       4 Edit existing guidance       |"); 
-	    System.out.println("|     5 Change language               6 Close and exit             |"); 
+	    System.out.println("|     5 Change language             6 Close and exit               |"); 
 	    System.out.println("+==================================================================+");
 	    System.out.print("| Your action: "); 
 	    
@@ -35,7 +35,7 @@ public class menuEN {
 	    	
 	    } else if (acao.equals("2")) {
 	    	
-	    	boolean excluirValido = true;
+	    	boolean excluirValido;
 	    	
 	    	do {
 		    System.out.println("------------------------------------------------------------------");	   
@@ -47,8 +47,11 @@ public class menuEN {
 		    
 		    if (excluir.equals("1")) {
 		    	orientacaoEn.ExcluirPorIDEn();
+				excluirValido = true;
+
 		    } else if (excluir.equals("2")) {
-		    	orientacaoEn.ExcluirPorTituloEn(); 
+		    	orientacaoEn.ExcluirPorTituloEn();
+				excluirValido = true;
 	    	
 		    } else {
 	    	System.out.println("\nNon-existent action, please check the entered number and try again.\n" ); 
@@ -62,7 +65,7 @@ public class menuEN {
 	    	
 	    } else if (acao.equals("3")) {
 	    	
-	    	boolean buscaValida = true;
+	    	boolean buscaValida;
 	    	
 	    	do {
 	    	System.out.println("+==================================================================+");
@@ -78,15 +81,19 @@ public class menuEN {
 		    
 		    if (busca.equals("1")) {
 		    	orientacaoEn.ListarTodaTabelaEn(); 
-		    	
+				buscaValida = true;
+
 		    }else if (busca.equals("2")) {
 		    	orientacaoEn.ListarTudoPorTipoEn(); 
+				buscaValida = true;
 		    	
 		    } else if (busca.equals("3")) {
 		    	orientacaoEn.BuscaPorIDEn(); 
-		    	
+				buscaValida = true;
+
 		    } else if (busca.equals("4")) {
 		    	orientacaoEn.BuscaPorTituloEn(); 
+				buscaValida = true;
 		    	
 		    } else {
 		    	System.out.println("\nNon-existent action, please check the entered number and try again.\n" ); 
@@ -100,7 +107,7 @@ public class menuEN {
 	//4 EDIÇÂO ///======================================================================================================================    
 	    	
 	    } else if (acao.equals("4")) {
-			boolean edicaoValida = true;
+			boolean edicaoValida;
 
 			do {
 			System.out.println("|------------------------------------------------------------------|");
@@ -113,16 +120,20 @@ public class menuEN {
 		    
 		    if (edita.equals("1")) {
 		    	orientacaoEn.AtualizarTodaAOrientacaoEn();
+				edicaoValida = true;
 		    	
 		    }else if (edita.equals("2")) {
 		    	orientacaoEn.AtualizarTituloOrientacaoEn(); 
+				edicaoValida = true;
 		    	
 		    } else if (edita.equals("3")) {
 		    	orientacaoEn.AtualizarTipoOrientacaoEn(); 
-		    	
+		    	edicaoValida = true;
+
 		    } else if (edita.equals("4")) {
 		    	orientacaoEn.AtualizarOrientacaoEn(); 
-		    	
+		    	edicaoValida = true;
+
 		    } else {
 		    	System.out.println("\nNon-existent action, please check the entered number and try again.\n" ); 
 		    	edicaoValida = false;

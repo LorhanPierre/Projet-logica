@@ -6,7 +6,7 @@ public class idioma {
         	//MÉTODO PARA DEFINIR O IDIOMA///==================================================================================================
 	public static void setLanguage () {
 		
-		boolean valido = true;
+		boolean valido;
 		Scanner input = new Scanner (System.in);
 		
 		do {
@@ -23,18 +23,23 @@ public class idioma {
         
         if (idiomaAtual.equalsIgnoreCase("portugues") || idiomaAtual.equalsIgnoreCase("PT") || idiomaAtual.equalsIgnoreCase("1") ) {
         	menuPT.menuInicialPT();
+            valido = true;
         	
         } else if (idiomaAtual.equalsIgnoreCase("english") || idiomaAtual.equalsIgnoreCase("EN") || idiomaAtual.equalsIgnoreCase("2") ) {
         	menuEN.menuInicialEN();
+            valido = true;
         	
         } else if (idiomaAtual.equalsIgnoreCase("deutsch") || idiomaAtual.equalsIgnoreCase("DE") || idiomaAtual.equalsIgnoreCase("3") ) {
         	System.out.println("menu em desenvolviento");
+            valido = true;
         	
         } else if (idiomaAtual.equalsIgnoreCase("Español") || idiomaAtual.equalsIgnoreCase("ES") || idiomaAtual.equalsIgnoreCase("3") ) {
         	System.out.println("menu em desenvolviento");
+            valido = true;
         	
         } else if (idiomaAtual.equalsIgnoreCase("Français") || idiomaAtual.equalsIgnoreCase("FR") || idiomaAtual.equalsIgnoreCase("4") ) {
         	System.out.println("menu em desenvolviento");
+            valido = true;
         	
         } else {
         	System.out.println("\nIdioma não reconhecido, confira os dados inseridos e tente novamente\n");
@@ -44,6 +49,6 @@ public class idioma {
         
 		} while (!valido);
 
-		
+		input.close();
 	}
 }

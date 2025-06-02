@@ -17,7 +17,7 @@ public class menuFR{
 		System.out.println("+==================================================================+");
 	    System.out.println("|                          Menu Principal                          |");
 	    System.out.println("|------------------------------------------------------------------|");
-	    System.out.println("|   1 Enregistrer nouvelle         2 Supprimer une orientation     |");
+	    System.out.println("|   1 Enregistrer nouvelle        2 Supprimer une orientation      |");
         System.out.println("|     orientation                                                  |");
 	    System.out.println("|   3 Rechercher une orientation  4 Modifier orientation existante |");
 	    System.out.println("|   5 Changer de langue           6 Fermer et quitter              |");
@@ -32,7 +32,7 @@ public class menuFR{
 	    	
 	    } else if (acao.equals("2")) {
 	    	
-	    	boolean excluirValido = true;
+	    	boolean excluirValido;
 	    	
 	    	do {
 		    System.out.println("------------------------------------------------------------------");	   
@@ -45,9 +45,11 @@ public class menuFR{
 		    
 		    if (excluir.equals("1")) {
 		    	orientacaoFr.ExcluirPorIDFr();
+				excluirValido = true;
 
 		    } else if (excluir.equals("2")) {
 		    	orientacaoFr.ExcluirPorTituloFr();
+				excluirValido = true;
 
 		    } else {
 	    	System.out.println("\nAction inexistante, vérifiez le numéro saisi et réessayez.\n" );
@@ -60,7 +62,7 @@ public class menuFR{
 
 	    } else if (acao.equals("3")) {
 	    	
-	    	boolean buscaValida = true;
+	    	boolean buscaValida;
 	    	
 	    	do {
 	    	System.out.println("+==================================================================+");
@@ -76,15 +78,19 @@ public class menuFR{
 		    
 		    if (busca.equals("1")) {
 		    	orientacaoFr.ListarTodaTabelaFr();
+				buscaValida = true;
 		    	
 		    }else if (busca.equals("2")) {
 		    	orientacaoFr.ListarTudoPorTipoFr();
+				buscaValida = true;
 
 		    } else if (busca.equals("3")) {
 		    	orientacaoFr.BuscaPorIDFr();
+				buscaValida = true;
 
 		    } else if (busca.equals("4")) {
 		    	orientacaoFr.BuscaPorTituloFr();
+				buscaValida = true;
 
 		    } else {
 		    	System.out.println("\nAction inexistante, vérifiez le numéro saisi et réessayez.\n" );
@@ -96,7 +102,8 @@ public class menuFR{
 	    	menuInicialFR();
 
 	    } else if (acao.equals("4")) {
-			boolean edicaoValida = true;
+
+			boolean edicaoValida;
 
 			do {
 			System.out.println("|------------------------------------------------------------------|");
@@ -109,15 +116,19 @@ public class menuFR{
 		    
 		    if (edita.equals("1")) {
 		    	orientacaoFr.AtualizarTodaAOrientacaoFr();
+				edicaoValida = true;
 		    	
 		    }else if (edita.equals("2")) {
 		    	orientacaoFr.AtualizarTituloOrientacaoFr();
+				edicaoValida = true;
 
 		    } else if (edita.equals("3")) {
 		    	orientacaoFr.AtualizarTipoOrientacaoFr();
+				edicaoValida = true;
 
 		    } else if (edita.equals("4")) {
 		    	orientacaoFr.AtualizarOrientacaoFr();
+				edicaoValida = true;
 
 		    } else {
 		    	System.out.println("\nAction inexistante, vérifiez le numéro saisi et réessayez.\n" );
@@ -145,7 +156,7 @@ public class menuFR{
 	    
 		} while (!valido);
 		
-		
+		input.close();
 	}
 
 	
