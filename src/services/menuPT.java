@@ -14,8 +14,6 @@ public class menuPT{
 		
 		do {
 			
-
-
 		System.out.println("+==================================================================+");
 	    System.out.println("|                         Menu Inicial                             |");
 	    System.out.println("|------------------------------------------------------------------|");

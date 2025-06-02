@@ -1,7 +1,6 @@
 
 import ConexaoBD.ConexaoBD;
 import java.sql.Connection;
-import java.util.Scanner;
 import services.idioma;
 
 

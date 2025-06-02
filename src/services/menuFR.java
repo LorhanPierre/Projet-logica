@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 
 public class menuFR{
-	
+
+//MENU INICIAL - lista todas ações que podem ser executadas no sistema em Francês///=======================================================
 	public static void menuInicialFR () {
 		
 		boolean valido = true;
@@ -26,7 +27,7 @@ public class menuFR{
 	    String acao = input.nextLine();
 	    
 	    if (acao.equals("1")) {
-	    	orientacaoFr.cadastroFR();
+	    	orientacaoFr.cadastroFr();
 			menuInicialFR();
 	    	
 	    } else if (acao.equals("2")) {
@@ -43,10 +44,10 @@ public class menuFR{
 		    String excluir = input.nextLine();
 		    
 		    if (excluir.equals("1")) {
-		    	//orientacaoFr.ExcluirPorIDFR();
-	    	
+		    	orientacaoFr.ExcluirPorIDFr();
+
 		    } else if (excluir.equals("2")) {
-		    	//orientacaoFr.ExcluirPorTituloFR();
+		    	orientacaoFr.ExcluirPorTituloFr();
 
 		    } else {
 	    	System.out.println("\nAction inexistante, vérifiez le numéro saisi et réessayez.\n" );
@@ -74,16 +75,16 @@ public class menuFR{
 		    String busca = input.nextLine();
 		    
 		    if (busca.equals("1")) {
-		    	//orientacaoFr.ListarTodaTabelaFR();
+		    	orientacaoFr.ListarTodaTabelaFr();
 		    	
 		    }else if (busca.equals("2")) {
-		    	//orientacaoFr.ListarTudoPorTipoFR();
-		    	
+		    	orientacaoFr.ListarTudoPorTipoFr();
+
 		    } else if (busca.equals("3")) {
-		    	//orientacaoFr.BuscaPorIDFR();
+		    	orientacaoFr.BuscaPorIDFr();
 
 		    } else if (busca.equals("4")) {
-		    	//orientacaoFr.BuscaPorTituloFR();
+		    	orientacaoFr.BuscaPorTituloFr();
 
 		    } else {
 		    	System.out.println("\nAction inexistante, vérifiez le numéro saisi et réessayez.\n" );
@@ -107,16 +108,16 @@ public class menuFR{
 			String edita = input.nextLine();
 		    
 		    if (edita.equals("1")) {
-		    	//orientacaoFr.AtualizarTodaAOrientacaoFR();
+		    	orientacaoFr.AtualizarTodaAOrientacaoFr();
 		    	
 		    }else if (edita.equals("2")) {
-		    	//orientacaoFr.AtualizarTituloOrientacaoFR();
+		    	orientacaoFr.AtualizarTituloOrientacaoFr();
 
 		    } else if (edita.equals("3")) {
-		    	//orientacaoFr.AtualizarTipoOrientacaoFR();
+		    	orientacaoFr.AtualizarTipoOrientacaoFr();
 
 		    } else if (edita.equals("4")) {
-		    	//orientacaoFr.AtualizarOrientacaoFR();
+		    	orientacaoFr.AtualizarOrientacaoFr();
 
 		    } else {
 		    	System.out.println("\nAction inexistante, vérifiez le numéro saisi et réessayez.\n" );
