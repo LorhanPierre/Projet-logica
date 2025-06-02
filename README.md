@@ -1,18 +1,8 @@
-## Getting Started
+📌 ProjetoFinal-WegOne
+Projeto solicitado pelo professor Bruno Andrade para a conclusão da unidade curricular de lógica de programação.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+🎯 Objetivo
+Desenvolver um sistema para o cadastro e consulta de regras de condutas WEG. Este sistema denominado WegOne visa permitir que os colaboradores da empresa possam acessar orientações relacionadas a diversos equipamentos e procedimentos operacionais da Weg de forma simples e eficiente. O sistema deve permitir a pesquisa, cadastro, edição e exclusão de orientações, além de oferecer opções de leitura em português, inglês e Alemão.
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+📑 Contextualização
+A WEG é uma empresa que fabrica uma ampla gama de equipamentos industriais. Para garantir que os colaboradores saibam como operar e manter esses equipamentos corretamente e como devem agir segundo as normas da empresa, faz-se necessário a criação de um sistema de orientações, onde as instruções de uso, segurança, manutenção e procedimentos operacionais nos setores da empresa estejam organizadas e facilmente acessíveis. O sistema deve permitir que os usuários escolham entre diferentes tipos de orientações, como manuais de operação, procedimentos de segurança, manutenção, testes e condutas no setor.
